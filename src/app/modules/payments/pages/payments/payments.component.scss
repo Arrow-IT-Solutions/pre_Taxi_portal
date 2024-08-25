@@ -75,9 +75,18 @@
           flex-grow: 2;
         }
       }
-    
+    .box{
+      @media(min-width:992px){
+        margin-left: 32rem;
+      }
+      
+      @media(max-width:767px){
+        width: 12rem;
+        margin-left: 1rem;
+      }
+    }
       &__search {
-        margin-inline-end: 4.5rem;
+        margin-inline-end: 8rem;
     
         & .search-field{
           border-color: $light-gray;
@@ -86,6 +95,7 @@
 
       & .shift-up{
         margin-top: -3rem;
+      
 
         @media (max-width: 991px) {
             margin-top: unset;
@@ -153,7 +163,10 @@
       width: 100%;
     }
   }
-
+.container{
+  max-height: 400px;
+  overflow-y: auto;
+}
   & .card {
     border-color: rgba($light-purple, 0.5);
     display: flex;
