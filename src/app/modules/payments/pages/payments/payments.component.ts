@@ -38,13 +38,15 @@ export class PaymentsComponent {
   isResetting: boolean = false;
   constructor(public layoutService: LayoutService, public paymentService: PaymentService, public messageService: MessageService, public confirmationService: ConfirmationService, public formBuilder: FormBuilder, public translate: TranslateService, public driverService: DriverService) {
     this.dataForm = this.formBuilder.group({
-      driver: [''],
+      driverSearch: [''],
       fromMonth: ['', Validators.required],
       toMonth: ['', Validators.required],
       amount: ['', Validators.required],
       date: ['', Validators.required],
       fromDate: [''],
       toDate: [''],
+      driver: ['', Validators.required]
+
     });
   }
 
@@ -126,12 +128,10 @@ export class PaymentsComponent {
 
     this.data = [];
     this.paymentService.SelectedData = null;
-    this.driverTotal = 0;
+    this.driverTotal = 0
 
     let filter: PaymentSearchRequest = {
-      driverIDFK: this.dataForm.controls['driver'].value,
-      fromDate: this.dataForm.controls['fromDate'].value,
-      toDate: this.dataForm.controls['toDate'].value,
+      driverIDFK: this.dataForm.controls['driverSearch'].value == null ? '' : this.dataForm.controls['driverSearch'].value.toString(),
       includeDriver: '1',
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString()
@@ -152,8 +152,6 @@ export class PaymentsComponent {
 
   OpenDialog(row: PaymentResponse | null = null) {
 
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // back to the top of the screen
-    document.body.style.overflow = 'hidden'; // lock screen scroll
 
     this.paymentService.SelectedData = row;
     this.dataForm.controls['driver'].disable();
@@ -163,8 +161,8 @@ export class PaymentsComponent {
       driver: this.paymentService.SelectedData?.driver?.uuid,
       date: this.paymentService.SelectedData?.date,
       amount: this.paymentService.SelectedData?.amount,
-      fromMonth: this.paymentService.SelectedData?.month?.toString(),
-      toMonth: this.paymentService.SelectedData?.month?.toString(),
+      fromMonth: Number(this.paymentService.SelectedData?.month),
+      toMonth: Number(this.paymentService.SelectedData?.month),
     };
     this.dataForm.patchValue(temp);
 

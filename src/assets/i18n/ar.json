@@ -89,5 +89,6 @@
   "FromMonth_Payment" : "من شهر",
   "ToMonth_Payment" : "الى شهر",
   "Payment_Payment" : "القيمه",
-  "Driver_Payment" : "السائق"
+  "Driver_Payment" : "السائق",
+  "select" : "اختار"
 }
