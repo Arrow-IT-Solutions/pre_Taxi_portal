@@ -51,8 +51,8 @@
 
 
 	<ng-container>
-		<div class="row mx-0 mt-2">
-			<div class="card col-12 mx-0 mb-2 row">
+		<div class="row mx-0 mt-2 box">
+			<div class="card col-12 mx-0 mb-2 ">
 				<div class="col-lg-3 col-md-12 col-sm-12 d-flex card__left">
 					<div class="card__image">
 						<img src="../../../../../assets/images/driver.jpg">
@@ -70,6 +70,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="col-lg-9 col-md-12 col-sm-12 card__contents">
 					<div class="card-section">
 						<div class="card-section__title">info</div>
@@ -92,7 +93,7 @@
 					</div>
 
 
-					<div class="card-section">
+					<div class="card-section ">
 						<div class="card-section__title"></div>
 						<div class="card-section__items">
 							<div class="card__contents__item">
@@ -138,31 +139,139 @@
 
 						</div>
 					</div>
-					<div class="card-section">
-						<div [matMenuTriggerFor]="menu"
-							class="card__actions">
-							<span class="material-symbols-outlined card__actions__details">more_vert</span>
-						</div>
-
-
-
-						<mat-menu #menu="matMenu">
-							<button mat-menu-item>
-								<span class="material-symbols-outlined">delete</span>
-								Delete
-							</button>
-						</mat-menu>
+					
+				</div>
+				<div class="one">
+					<div [matMenuTriggerFor]="menu"
+						class="card__actions">
+						<span class="material-symbols-outlined card__actions__details">more_vert</span>
 					</div>
+
+
+
+					<mat-menu #menu="matMenu">
+						<button mat-menu-item>
+							<span class="material-symbols-outlined" id="delete">delete</span>
+							Delete
+						</button>
+					</mat-menu>
+				</div>
+			</div>
+			<div class="card col-12 mx-0 mb-2 ">
+				<div class="col-lg-3 col-md-12 col-sm-12 d-flex card__left">
+					<div class="card__image">
+						<img src="../../../../../assets/images/driver.jpg">
+					</div>
+
+
+					<div class="name-ID mx-3">
+						<!-- <div class="name">1</div> -->
+						<div class="size-category mb-1">
+							<span class="size">Shefroleet</span>
+							<span class="category">2019</span>
+						</div>
+						<div class="item__ID">
+							<span>Car No: 1315153</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+					<div class="card-section">
+						<div class="card-section__title">info</div>
+						<div class="card-section__items">
+							<div class="card__contents__item">
+								<div class="card-label">Driver Name</div>
+								<div class="card-info">
+									<span class="material-symbols-outlined fill"></span>
+									Ahmed Khaled Mohammed Nofal
+								</div>
+							</div>
+							<div class="card__contents__item">
+								<div class="card-label">Owner Name</div>
+								<div class="card-info">
+									<span class="material-symbols-outlined fill"></span>
+									Ahmed Khaled Mohammed Nofal
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="card-section ">
+						<div class="card-section__title"></div>
+						<div class="card-section__items">
+							<div class="card__contents__item">
+								<div class="card-label">National ID</div>
+								<div class="card-info">9931051533</div>
+							</div>
+							<div class="card__contents__item">
+								<div class="card-label">Owner Phone</div>
+								<div class="card-info">+962791503001</div>
+							</div>
+							<div class="card__contents__item">
+								<div class="card-label">Driver Phone</div>
+								<div class="card-info">+962791503001</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="card-section">
+						<div class="card-section__title"></div>
+						<div class="card-section__items">
+							<div class="card__contents__item">
+								<div class="card-label">Expiry lice Data</div>
+								<div class="card-info">2024-01-12</div>
+							</div>
+							<div class="card__contents__item">
+								<div class="card-label">Creation Date</div>
+								<div class="card-info">2024-01-12</div>
+							</div>
+
+
+							<div class="card__contents__item">
+								<div class="card-label">Model Car</div>
+								<div class="card-info">2019</div>
+							</div>
+
+
+							<div class="card__contents__item">
+								<div class="card-label">Car Type</div>
+								<div class="card-info">Shefroleet</div>
+							</div>
+
+
+						</div>
+					</div>
+					
+				</div>
+				<div class="one">
+					<div [matMenuTriggerFor]="menu"
+						class="card__actions">
+						<span class="material-symbols-outlined card__actions__details">more_vert</span>
+					</div>
+
+
+
+					<mat-menu #menu="matMenu">
+						<button mat-menu-item>
+							<span class="material-symbols-outlined">delete</span>
+							Delete
+						</button>
+					</mat-menu>
 				</div>
 			</div>
 
 
 
-			<p-paginator></p-paginator>
+			
 
-      <button class="add-button" (click)="OpenDialog()">
-        <span class="material-symbols-outlined"> add </span>
-      </button>
+      
 		</div>
+		<p-paginator></p-paginator>
+		<button class="add-button" (click)="OpenDialog()">
+			<span class="material-symbols-outlined"> add </span>
+		  </button>
 	</ng-container>
 </div>
