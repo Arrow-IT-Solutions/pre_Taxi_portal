@@ -49,5 +49,50 @@
   "Connection_ID_Center": "Connection ID",
 
   "CreateCashier_Cashier": "Create Cashier",
-  "UpdateCashier_Cashier": "Update Cashier"
+  "UpdateCashier_Cashier": "Update Cashier",
+  "Search_DriverName": "Driver Name",
+  "Search_OwnerName" : "Owner Name",
+  "Search_DriverPhone" : "Driver Phone",
+  "Search_CarNumber" : "Car Number",
+  "CarNo_Driver" : "Car No",
+  "DriverName_Driver" : "Driver Name",
+  "OwnerName_Driver" : "Owner Name",
+  "DriverNationalID_Driver": "Driver National ID",
+  "OwnerPhone_Driver" : "Owner Phone No",
+  "DriverPhone_Driver" : "Driver Phone No",
+  "Edit_Driver" : "Edit",
+  "Delete_Driver" : "Delete",
+  "Basic_Info_Driver" : "Basic Info",
+  "OwnerNameAr_Driver" : "Owner Name in Arabic",
+  "OwnerNameEn_Driver" : "Owner Name in English",
+  "OwnerNationalID_Driver" : "Owner National ID",
+  "CarTypeEn_Driver" : "Car Type in English",
+  "CarTypeAr_Driver" : "Car Type in Arabic",
+  "CarModel_Driver" : "Car Model",
+  "CarNumber_Driver" : "Car Number",
+  "DriverNameEn_Driver" : "Driver Name in English",
+  "DriverNameAr_Driver" : "Driver Name in Arabic",
+  "CreateDriver_Driver" : "Create New Driver",
+  "UpdateDriver_Driver" : "Edit Driver",
+  "Do_you_want_to_delete_this_record?" : "Do you want to delete this record?",
+  "Delete_Confirmation" : "Delete Confirmation",
+  "CarType_Driver" : "Car Type",
+  "CreationDate_Driver" : "Creation Date",
+  "LicenceExpDate_Driver" : "Licence Expiry Date",
+  "Month_Payment" : "Month",
+  "ReciptNumber_Payment" : "Receipt No",
+  "Amount_Payment" : "Amount",
+  "Date_Payment" : "Date",
+  "Edit_Payment" : "Edit",
+  "Delete_Payment" : "Delete",
+  "AddPayment_Payment" : "Add Payment",
+  "FromMonth_Payment" : "From Month",
+  "ToMonth_Payment" : "To Month",
+  "Payment_Payment" : "Amount",
+  "Driver_Payment" : "Driver"
+
+
+
+
+
 }

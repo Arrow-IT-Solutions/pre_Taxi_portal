@@ -1,78 +1,107 @@
-<form>
-    <div class="add-driver">
-      <div class="box-shadow mb-3">
-        <div class="row">
-          <div class="col-12 side-icon">
-            <span class="material-symbols-outlined"> info </span>
-            <span>Basic Info</span>
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-driver">
+  <div class="add-driver">
+    <div class="box-shadow mb-3">
+      <div class="row">
+        <div class="col-12 side-icon">
+          <span class="material-symbols-outlined">info</span>
+          <span>{{ 'Basic_Info_Driver' | translate }}</span>
+        </div>
+        <div class="col-12 row m-0 p-0">
+          <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="ownerNameEn" />
+              <label>{{ 'OwnerNameEn_Driver' | translate }}</label>
+            </div>
           </div>
-          <div class="col-12 row m-0 p-0">
-            <div class="col-12 mb-3">
-              <div class="p-float-label">
-                <input pInputText type="text" />
-                <label>Owner Name </label>
-
-              </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="ownerNameAr" />
+              <label>{{ 'OwnerNameAr_Driver' | translate }}</label>
             </div>
-            <div class="col-12 mb-3">
-              <div class="p-float-label">
-                <input pInputText type="text"/>
-                <label>Nattional Number Owner</label>
-              </div>
+          </div>
+
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="ownerNationalID" />
+              <label>{{ 'OwnerNationalID_Driver' | translate }}r</label>
             </div>
-            <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>Owner Phone</label>
-                </div>
-              </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="ownerPhone" />
+              <label>{{ 'OwnerPhone_Driver' | translate }}</label>
+            </div>
+          </div>
 
-              <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>Model No</label>
-                </div>
-              </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carTypeEn" />
+              <label>{{ 'CarTypeEn_Driver' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carTypeAr" />
+              <label>{{ 'CarTypeAr_Driver' | translate }}</label>
+            </div>
+          </div>
 
-              <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>Car Type</label>
-                </div>
-              </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carModel" />
+              <label>{{ 'CarModel_Driver' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carNumber" />
+              <label>{{ 'CarNumber_Driver' | translate }}</label>
+            </div>
+          </div>
 
-
-              <div class="col-12 mb-3">
+          <!-- <div class="col-12 mb-3">
                 <div class="p-float-label">
                   <p-calendar [showIcon]="true"></p-calendar>
                   <label>Expiry Date Lic </label>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>Driver Name</label>
-                </div>
-              </div>
-              <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>National Number Driver</label>
-                </div>
-              </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="driverNameEn" />
+              <label>{{ 'DriverNameEn_Driver' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="driverNameAr" />
+              <label>{{ 'DriverNameAr_Driver' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="driverNationalID" />
+              <label>{{ 'DriverNationalID_Driver' | translate }}</label>
+            </div>
+          </div>
 
-              <div class="col-12 mb-3">
-                <div class="p-float-label">
-                  <input pInputText type="text"/>
-                  <label>Driver Phone</label>
-                </div>
-              </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="driverPhone" />
+              <label>{{ 'DriverPhone_Driver' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="licesnceExpDate"></p-calendar>
+              <label>{{ 'LicenceExpDate_Driver' | translate }}</label>
+            </div>
           </div>
         </div>
       </div>
-  
-      <div class="box-shadow mb-3">
+    </div>
+
+    <!-- <div class="box-shadow mb-3">
         <div class="row">
           <div class="side-icon col-12">
             <span class="material-symbols-outlined"> edit_note </span>
@@ -95,16 +124,12 @@
             </div>
           </div>
         </div>
-      </div>
-  
+      </div> -->
 
-  
-      <div class="col-xs-12 text-end mt-4">
-        <p-button
-          type="Submit"
-          class="btn-primary"
-          label="Save"
-        ></p-button>
-      </div>
+    <div class="col-xs-12 text-end mt-4">
+      <p-button type="Submit" class="btn-primary" label="Save" [loading]="btnLoading"></p-button>
     </div>
-  </form>  
+  </div>
+</form>
+
+<p-toast key="toast"></p-toast>

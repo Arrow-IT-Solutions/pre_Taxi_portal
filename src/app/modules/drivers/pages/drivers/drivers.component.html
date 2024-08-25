@@ -1,168 +1,183 @@
-<div class="drivers">
-	<div class="row mb-4 m-0 flex-row-reverse p-0">
-		<div class="col-lg-3 col-md-10 col p-0 drivers__search">
-			<div class="flex flex-wrap justify-content-center gap-3">
-				<span class="p-input-icon-left p-0">
-					<i class="pi pi-search"></i>
-					<input class="search-field"
-						type="text"
-						pInputText>
-				</span>
-			</div>
-		</div>
-		<p-accordion class="p-0">
-			<p-accordionTab>
-				<ng-template pTemplate="header">
-					<div class="flex align-items-center">
-						<span class="material-symbols-outlined">tune</span>
-					</div>
-				</ng-template>
-				<ng-template pTemplate="content">
-					<div class="m-0 row">
-						<div class="filter-title">
-							<span class="material-symbols-outlined">filter_alt</span>
-							<span>Filter By</span>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-							<div class="p-float-label">
-								<p-dropdown></p-dropdown>
-								<label>Category</label>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-							<div class="p-float-label">
-								<p-calendar [showIcon]="true"
-									formControlName="date"></p-calendar>
-								<label>Added Date</label>
-							</div>
-						</div>
-						<div class="col mt-3 text-end">
-							<p-button class="btn-outline-secondary">
-								<span class="material-symbols-outlined">restart_alt</span>
-							</p-button>
-						</div>
-					</div>
-				</ng-template>
-			</p-accordionTab>
-		</p-accordion>
-	</div>
+<form [formGroup]="dataForm" class="drivers">
+  <div class="row mb-4 m-0 flex-row-reverse p-0">
+    <div class="col-lg-3 col-md-10 col p-0 drivers__search">
+      <div class="flex flex-wrap justify-content-center gap-3">
+        <span class="p-input-icon-left p-0">
+          <i class="pi pi-search"></i>
+          <input (ngModelChange)="OnChange()" class="search-field" type="text" pInputText placeholder="{{ 'Search_DriverName' | translate }}" formControlName="driverName" />
+        </span>
+      </div>
+    </div>
+    <p-accordion class="p-0">
+      <p-accordionTab>
+        <ng-template pTemplate="header">
+          <div class="flex align-items-center">
+            <span class="material-symbols-outlined">tune</span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="content">
+          <div class="m-0 row">
+            <div class="filter-title">
+              <span class="material-symbols-outlined">filter_alt</span>
+              <span>Filter By</span>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+              <div class="p-float-label">
+                <span class="p-input-icon-left p-0">
+                  <i class="pi pi-search"></i>
+                  <input (ngModelChange)="OnChange()" class="search-field" type="text" pInputText placeholder="{{ 'Search_OwnerName' | translate }}" formControlName="ownerName" />
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+              <div class="p-float-label">
+                <span class="p-input-icon-left p-0">
+                  <i class="pi pi-search"></i>
+                  <input (ngModelChange)="OnChange()" class="search-field" type="text" pInputText placeholder="{{ 'Search_DriverPhone' | translate }}" formControlName="phone" />
+                </span>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+              <div class="p-float-label">
+                <span class="p-input-icon-left p-0">
+                  <i class="pi pi-search"></i>
+                  <input (ngModelChange)="OnChange()" class="search-field" type="text" pInputText placeholder="{{ 'Search_CarNumber' | translate }}" formControlName="carNumber" />
+                </span>
+              </div>
+            </div>
+            <div class="col mt-3 text-end">
+              <p-button (onClick)="resetform()" class="btn-outline-secondary">
+                <span class="material-symbols-outlined">restart_alt</span>
+              </p-button>
+            </div>
+          </div>
+        </ng-template>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
 
+  <ng-container *ngIf="!loading; else ListView">
+    <div class="row mx-0 mt-2">
+      <div *ngFor="let row of data">
+        <div class="card col-12 mx-0 mb-2 row">
+          <div class="col-lg-3 col-md-12 col-sm-12 d-flex card__left">
+            <div class="card__image">
+              <img src="../../../../../assets/images/driver.jpg" />
+            </div>
 
+            <div class="name-ID mx-3">
+              <!-- <div class="name">1</div> -->
+              <div class="size-category mb-1">
+                <span class="size">{{ row.driverTranslation![layoutService.config.lang]?.carType }}</span>
+                <span class="category">{{ row.carModel }}</span>
+              </div>
+              <div class="item__ID">
+                <span>{{ 'CarNo_Driver' | translate }}: {{ row.carNumber }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-12 col-sm-12 card__contents">
+            <div class="card-section">
+              <div class="card-section__title">info</div>
+              <div class="card-section__items">
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'DriverName_Driver' | translate }}</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    {{ row.driverTranslation![layoutService.config.lang]?.driverName }}
+                  </div>
+                </div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'OwnerName_Driver' | translate }}</div>
+                  <div class="card-info">
+                    <span class="material-symbols-outlined fill"></span>
+                    {{ row.driverTranslation![layoutService.config.lang]?.ownerName }}
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="card-section">
+              <div class="card-section__title"></div>
+              <div class="card-section__items">
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'DriverNationalID_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.driverNationalID }}</div>
+                </div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'OwnerPhone_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.ownerPhone }}</div>
+                </div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'DriverPhone_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.driverPhone }}</div>
+                </div>
+              </div>
+            </div>
 
-	<ng-container>
-		<div class="row mx-0 mt-2">
-			<div class="card col-12 mx-0 mb-2 row">
-				<div class="col-lg-3 col-md-12 col-sm-12 d-flex card__left">
-					<div class="card__image">
-						<img src="../../../../../assets/images/driver.jpg">
-					</div>
+            <div class="card-section">
+              <div class="card-section__title"></div>
+              <div class="card-section__items">
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'LicenceExpDate_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.licenceExpDate | date : 'dd-MM-yyyy' }}</div>
+                </div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'CreationDate_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.creationDate | date : 'dd-MM-yyyy' }}</div>
+                </div>
 
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'CarModel_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.carModel }}</div>
+                </div>
 
-					<div class="name-ID mx-3">
-						<!-- <div class="name">1</div> -->
-						<div class="size-category mb-1">
-							<span class="size">Shefroleet</span>
-							<span class="category">2019</span>
-						</div>
-						<div class="item__ID">
-							<span>Car No: 1315153</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-12 col-sm-12 card__contents">
-					<div class="card-section">
-						<div class="card-section__title">info</div>
-						<div class="card-section__items">
-							<div class="card__contents__item">
-								<div class="card-label">Driver Name</div>
-								<div class="card-info">
-									<span class="material-symbols-outlined fill"></span>
-									Ahmed Khaled Mohammed Nofal
-								</div>
-							</div>
-							<div class="card__contents__item">
-								<div class="card-label">Owner Name</div>
-								<div class="card-info">
-									<span class="material-symbols-outlined fill"></span>
-									Ahmed Khaled Mohammed Nofal
-								</div>
-							</div>
-						</div>
-					</div>
+                <div class="card__contents__item">
+                  <div class="card-label">{{ 'CarType_Driver' | translate }}</div>
+                  <div class="card-info">{{ row.driverTranslation![layoutService.config.lang]?.carType }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-section">
+              <div [matMenuTriggerFor]="menu" class="card__actions">
+                <span class="material-symbols-outlined card__actions__details">more_vert</span>
+              </div>
 
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="OpenDialog(row)">
+                  <span class="material-symbols-outlined">Edit</span>
+                  {{ 'Edit_Driver' | translate }}
+                </button>
+                <button mat-menu-item (click)="confirmDelete(row)">
+                  <span class="material-symbols-outlined">delete</span>
+                  {{ 'Delete_Driver' | translate }}
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
 
-					<div class="card-section">
-						<div class="card-section__title"></div>
-						<div class="card-section__items">
-							<div class="card__contents__item">
-								<div class="card-label">National ID</div>
-								<div class="card-info">9931051533</div>
-							</div>
-							<div class="card__contents__item">
-								<div class="card-label">Owner Phone</div>
-								<div class="card-info">+962791503001</div>
-							</div>
-							<div class="card__contents__item">
-								<div class="card-label">Driver Phone</div>
-								<div class="card-info">+962791503001</div>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="card-section">
-						<div class="card-section__title"></div>
-						<div class="card-section__items">
-							<div class="card__contents__item">
-								<div class="card-label">Expiry lice Data</div>
-								<div class="card-info">2024-01-12</div>
-							</div>
-							<div class="card__contents__item">
-								<div class="card-label">Creation Date</div>
-								<div class="card-info">2024-01-12</div>
-							</div>
-
-
-							<div class="card__contents__item">
-								<div class="card-label">Model Car</div>
-								<div class="card-info">2019</div>
-							</div>
-
-
-							<div class="card__contents__item">
-								<div class="card-label">Car Type</div>
-								<div class="card-info">Shefroleet</div>
-							</div>
-
-
-						</div>
-					</div>
-					<div class="card-section">
-						<div [matMenuTriggerFor]="menu"
-							class="card__actions">
-							<span class="material-symbols-outlined card__actions__details">more_vert</span>
-						</div>
-
-
-
-						<mat-menu #menu="matMenu">
-							<button mat-menu-item>
-								<span class="material-symbols-outlined">delete</span>
-								Delete
-							</button>
-						</mat-menu>
-					</div>
-				</div>
-			</div>
-
-
-
-			<p-paginator></p-paginator>
+      <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
 
       <button class="add-button" (click)="OpenDialog()">
-        <span class="material-symbols-outlined"> add </span>
+        <span class="material-symbols-outlined">add</span>
       </button>
-		</div>
-	</ng-container>
-</div>
+    </div>
+  </ng-container>
+</form>
+
+<ng-template #ListView>
+  <div class="row">
+    <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+      <p-skeleton height="7.5rem"></p-skeleton>
+    </div>
+  </div>
+</ng-template>
+
+<p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}" (click)="positionDialog.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}" (click)="positionDialog.accept()"></button>
+  </ng-template>
+</p-confirmDialog>

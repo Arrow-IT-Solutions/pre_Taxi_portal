@@ -31,7 +31,7 @@ export class LoginComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-   // this.emailElement.nativeElement.focus();
+    // this.emailElement.nativeElement.focus();
   }
 
   public onKeyDown(event: KeyboardEvent) {
@@ -79,29 +79,28 @@ export class LoginComponent implements AfterViewInit {
       this.userService.currentUser = {
         userUUID: response.uuid,
         userName: response.userName,
-        userType:response.userType,
-        token:response.token,
-        loggedInUser:response.userLoggedIn
+        userType: response.userType,
+        token: response.token,
+        loggedInUser: response.userLoggedIn
       };
 
       this.layoutService.config = {
-        dir:'ltr',
-        lang : 'en'
+        dir: 'ltr',
+        lang: 'en'
       }
 
       this.localService.saveData('currentUser', JSON.stringify(this.userService.currentUser));
       this.localService.saveData('lang', "en");
       this.localService.saveData('dir', "ltr");
 
-      switch (response.userType)
-      {
-        case '0' :
-        this.router.navigateByUrl('layout-admin/dashboard'); // admin or user 
-        break;
+      switch (response.userType) {
+        case '0':
+          this.router.navigateByUrl('layout-admin/drivers'); // admin or user
+          break;
 
-        case '3' :
-        this.router.navigateByUrl('layout/home'); // cashier 
-        break;
+        case '3':
+          this.router.navigateByUrl('layout/home'); // cashier
+          break;
       }
 
       // this.router.navigateByUrl('merchants');
@@ -114,7 +113,7 @@ export class LoginComponent implements AfterViewInit {
     this.submitted = false;
     this.loading = false;
 
-    
+
   }
 
   goToSignUp() {

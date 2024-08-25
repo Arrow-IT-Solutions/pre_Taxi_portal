@@ -1,479 +1,164 @@
-<form>
-	<div class="payments row">
-		<div class="col-lg-3 col-md-12">
-			<div class="box-shadow mb-3">
-				<div class="row">
-					<div class="col-12 side-icon">
-						<span class="material-symbols-outlined">add</span>
-						<span>Add Payment</span>
-					</div>
-					<div class="col-12 row m-0 p-0">
-						<div class="col-12 mb-3">
-							<div class="p-float-label">
-								<input pInputText type="text" disabled="disabled" />
-								<label>Ahmed Khaled Nofal</label>
-							</div>
-						</div>
-
-
-						<div class="col-12 mb-3">
-							<div class="p-float-label">
-								<p-dropdown></p-dropdown>
-								<label>From Month</label>
-							</div>
-						</div>
-
-
-						
-
-
-						<div class="col-12 mb-3">
-							<div class="p-float-label">
-								<p-dropdown></p-dropdown>
-								<label>To Month</label>
-							</div>
-						</div>
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-driver">
+  <div class="payments row">
+    <div class="col-lg-3 col-md-12">
+      <div class="box-shadow mb-3">
+        <div class="row">
+          <div class="col-12 side-icon">
+            <span class="material-symbols-outlined">add</span>
+            <span>{{ 'AddPayment_Payment' | translate }}</span>
+          </div>
+          <div class="col-12 row m-0 p-0">
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driver" optionLabel="driverTranslation.ar.driverName" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="driverTranslation.ar.driverName" (onFilter)="FillClient($event)"></p-dropdown>
+                <label>{{ 'Driver_Payment' | translate }}</label>
+              </div>
+            </div>
 
             <div class="col-12 mb-3">
-							<div class="p-float-label">
-								<p-calendar [showIcon]="true"
-									formControlName="date"></p-calendar>
-								<label>Date</label>
-							</div>
-						</div>
+              <div class="p-float-label">
+                <p-dropdown [options]="fromMonths" [(ngModel)]="selectedFromMonth" formControlName="fromMonth"></p-dropdown>
+                <label>{{ 'FromMonth_Payment' | translate }}</label>
+              </div>
+            </div>
 
-						<div class="col-12 mb-3">
-							<div class="p-float-label">
-								<p-inputNumber [showButtons]="true"
-									[step]="1"
-									[min]="0"
-									formControlName="maxquantityperU"
-									buttonLayout="horizontal"
-									decrementButtonClass="p-button-danger"
-									incrementButtonClass="p-button-success"
-									incrementButtonIcon="pi pi-plus"
-									decrementButtonIcon="pi pi-minus"></p-inputNumber>
-								<label class="counter-label">Payments</label>
-							</div>
-						</div>
-						<div class="col-xs-12 mb-3">
-							<p-button type="Submit"
-				class="btn-outline"
-				label="Save"></p-button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <p-dropdown [options]="toMonths" [(ngModel)]="selectedToMonth" formControlName="toMonth"></p-dropdown>
+                <label>{{ 'ToMonth_Payment' | translate }}</label>
+              </div>
+            </div>
 
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <p-calendar [showIcon]="true" formControlName="date"></p-calendar>
+                <label>{{ 'Date_Payment' | translate }}</label>
+              </div>
+            </div>
 
-		<div class="col-lg-9 col-md-12">
-			<div class="box-shadow mb-3">
-				<div class="row">
-					<div class="col-12 side-icon">
-						<span class="material-symbols-outlined">list</span>
-						<span>Payments</span>
-					</div>
-					<div class="row mb-2 mx-0 flex-row-reverse p-0 shift-up">
-						<div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
-							<div class="flex flex-wrap justify-content-center gap-3">
-								<span class="p-input-icon-left p-0">
-									<i class="pi pi-search"></i>
-									<input class="search-field"
-										type="text"
-										pInputText>
-								</span>
-							</div>
-						</div>
-						<p-accordion class="p-0">
-							<p-accordionTab>
-								<ng-template pTemplate="header">
-									<div class="flex align-items-center">
-										<span class="material-symbols-outlined">tune</span>
-									</div>
-								</ng-template>
-								<ng-template pTemplate="content">
-									<div class="m-0 row">
-										<div class="filter-title">
-											<span class="material-symbols-outlined">filter_alt</span>
-											<span>Filter By</span>
-										</div>
-										<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-											<div class="p-float-label">
-												<input type="text"
-													pInputText>
-												<label>Item Code</label>
-											</div>
-										</div>
-										<div class="col mt-3 text-end">
-											<p-button class="btn-outline-secondary">
-												<span class="material-symbols-outlined">restart_alt</span>
-											</p-button>
-										</div>
-									</div>
-								</ng-template>
-							</p-accordionTab>
-						</p-accordion>
-					</div>
-					<div class="col-12 row mx-0 mt-2">
-						<div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="amount" buttonLayout="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+                <label class="counter-label">{{ 'Payment_Payment' | translate }}</label>
+              </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+              <p-button type="Submit" class="btn-outline" label="Save" [loading]="btnLoading"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="col-lg-9 col-md-12">
+      <div class="box-shadow mb-3">
+        <div class="row">
+          <div class="col-12 side-icon">
+            <span class="material-symbols-outlined">list</span>
+            <span>Payments</span>
+          </div>
+          <div class="row mb-2 mx-0 flex-row-reverse p-0 shift-up">
+            <div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
+              <div class="flex flex-wrap justify-content-center gap-3">
+                <span class="p-input-icon-left p-0">
+                  <i class="pi pi-search"></i>
+                  <input class="search-field" type="text" pInputText />
+                </span>
+              </div>
+            </div>
+            <p-accordion class="p-0">
+              <p-accordionTab>
+                <ng-template pTemplate="header">
+                  <div class="flex align-items-center">
+                    <span class="material-symbols-outlined">tune</span>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="content">
+                  <div class="m-0 row">
+                    <div class="filter-title">
+                      <span class="material-symbols-outlined">filter_alt</span>
+                      <span>Filter By</span>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                      <div class="p-float-label">
+                        <input type="text" pInputText />
+                        <label>Item Code</label>
+                      </div>
+                    </div>
+                    <div class="col mt-3 text-end">
+                      <p-button class="btn-outline-secondary">
+                        <span class="material-symbols-outlined">restart_alt</span>
+                      </p-button>
+                    </div>
+                  </div>
+                </ng-template>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+          <div class="col-12 row mx-0 mt-2">
+            <div *ngFor="let row of data">
+              <div class="card col-12 mx-0 mb-2 row">
+                <div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
+                  <div class="card__image">
+                    <img src="../../../../../assets/images/invoice.jpg" />
+                  </div>
 
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
+                  <div class="name-ID mx-3">
+                    <div class="name mb-1">{{ row.date | date : 'dd-MM-yyyy' }}</div>
+                    <div class="item__ID">
+                      <span>ID: {{ row.receiptNo }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12 card__contents">
+                  <div class="card__contents__item">
+                    <div class="card-label">{{ 'Month_Payment' | translate }}</div>
+                    <div class="card-info">{{ row.month }}</div>
+                  </div>
+                  <div class="card__contents__item">
+                    <div class="card-label">{{ 'ReciptNumber_Payment' | translate }}</div>
+                    <div class="card-info">{{ row.receiptNo }}</div>
+                  </div>
+                  <div class="card__contents__item">
+                    <div class="card-label">{{ 'Amount_Payment' | translate }}</div>
+                    <div class="card-info">{{ row.amount }} {{ 'JOD' | translate }}</div>
+                  </div>
+                  <div class="card__contents__item">
+                    <div class="card-label">{{ 'Date_Payment' | translate }}</div>
+                    <div class="card-info">{{ row.date | date : 'dd-MM-yyyy' }}</div>
+                  </div>
+                  <div class="card__contents__item">
+                    <div class="card-label"></div>
+                    <div class="card-info"></div>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-12">
+                  <div class="card__actions">
+                    <span [matMenuTriggerFor]="menu" class="material-symbols-outlined card__actions__details">more_vert</span>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item (click)="OpenDialog(row)">
+                        <span class="material-symbols-outlined">edit</span>
+                        {{ 'Edit_Payment' | translate }}
+                      </button>
+                      <button mat-menu-item>
+                        <span class="material-symbols-outlined">delete</span>
+                        {{ 'Delete_Payment' | translate }}
+                      </button>
+                    </mat-menu>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-								</div>
-							</div>
-						</div>
-
-            <div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
-
-
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
-
-
-								</div>
-							</div>
-						</div>
-
-            <div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
-
-
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
-
-
-								</div>
-							</div>
-						</div>
-
-
-            <div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
-
-
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
-
-
-								</div>
-							</div>
-						</div>
-            <div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
-
-
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
-
-
-								</div>
-							</div>
-						</div>
-            <div class="card col-12 mx-0 mb-2 row">
-							<div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
-								<div class="card__image">
-									<img src="../../../../../assets/images/invoice.jpg">
-								</div>
-
-
-								<div class="name-ID mx-3">
-									<div class="name mb-1">2024-01-01</div>
-									<div class="item__ID">
-										<span>ID: 1315153</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-12 col-sm-12 card__contents">
-								<div class="card__contents__item">
-									<div class="card-label">Month</div>
-									<div class="card-info">1</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Number Invoice</div>
-									<div class="card-info">1315153</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Price</div>
-									<div class="card-info">20.00 JOD</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label">Date</div>
-									<div class="card-info">2024-01-01</div>
-								</div>
-								<div class="card__contents__item">
-									<div class="card-label"></div>
-									<div class="card-info"></div>
-								</div>
-							</div>
-							<div class="col-lg-1 col-md-12">
-								<div class="card__actions">
-									<span [matMenuTriggerFor]="menu"
-										class="material-symbols-outlined card__actions__details">
-										more_vert
-									</span>
-									<mat-menu #menu="matMenu">
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">edit</span>
-											Edit
-										</button>
-										<button mat-menu-item>
-											<span class="material-symbols-outlined">delete</span>
-											Delete
-										</button>
-									</mat-menu>
-
-
-								</div>
-							</div>
-						</div>
-
-						<p-paginator></p-paginator>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<!-- <div class="col-xs-12 text-end mt-4">
+    <!-- <div class="col-xs-12 text-end mt-4">
 			<p-button type="Submit"
 				class="btn-primary"
 				label="Save"></p-button>
 		</div> -->
-	</div>
+  </div>
 </form>

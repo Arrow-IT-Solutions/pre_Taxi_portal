@@ -17,30 +17,31 @@ import { Slider, SliderModule } from 'primeng/slider';
 import { ToastModule } from 'primeng/toast';
 import { MenuModule } from 'primeng/menu';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StepsModule } from 'primeng/steps';
 import { TabViewModule } from 'primeng/tabview';
 import { ChartModule } from 'primeng/chart';
 import { MessagesModule } from 'primeng/messages';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { TimelineModule } from 'primeng/timeline';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PanelModule } from 'primeng/panel';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 @NgModule({
   declarations: [],
   imports: [
 
     ButtonModule,
     TooltipModule,
- 
+
   ],
   exports: [
     ButtonModule,
@@ -78,7 +79,9 @@ import { DialogModule } from 'primeng/dialog';
     CheckboxModule,
     PanelModule,
     MatExpansionModule,
-    DialogModule
+    DialogModule,
+    ConfirmDialogModule,
+
   ]
 })
-export class NgPrimeModule {}
+export class NgPrimeModule { }
