@@ -1,0 +1,86 @@
+@import "../../../../../assets/scss/varialbles.scss";
+
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+        background-color: $white-color;
+        border-radius: 10px;
+        box-shadow: $shadow-style;
+        padding: .5rem 1rem;
+        margin: 0.5rem;
+        cursor: pointer;
+        transition: .2s;
+        border: 1px solid $white-color;
+        width: 100%;
+        align-items: center;
+
+        &:hover, &.active{
+            border: 1px solid $primary-color;
+        }
+    }
+
+    &__image{
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+        clip-path: circle(50% at 50% 50%);
+        position: relative;
+
+        & img{
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    &__title{
+        margin: .5rem 0.25rem 0rem 0;
+        font-family: myfont-semibold, myfont-ar-semibold;
+        text-align: center;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__price{
+        color: $blue-color;
+        text-align: center;
+        // margin-top: 1rem;
+        font-family: myfont-semibold, myfont-ar-semibold;
+        font-size: $large-font;
+    }
+
+    &__counter{
+        white-space: nowrap;
+        
+        & .add-btn,
+        & .remove-btn {
+          color: $primary-color;
+          background-color: rgba($primary-color, 0.15);
+          border-radius: 50%;
+          padding: 0.25rem;
+          margin: 0.25rem 0.75rem 0.75rem;
+          cursor: pointer;
+          transition: 0.2s;
+          font-size: $medium-icon;
+  
+          &:hover {
+            background-color: rgba($primary-color, 0.3);
+          }
+  
+          & .material-symbols-outlined {
+            font-size: $small-icon;
+          }
+        }
+  
+        &__number {
+          font-size: $large-font;
+        }
+      }
+}

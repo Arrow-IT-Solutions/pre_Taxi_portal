@@ -1,0 +1,197 @@
+<div class="invoice">
+    <div class="invoice__header">
+        <div class="invoice__title">
+            Invoice
+        </div>
+        <div class="invoice__tools">
+            <div class="add-notes">
+                <span class="material-symbols-outlined" pTooltip="Add Note">edit_note</span>
+                <div class="red-alert"></div>
+            </div>
+            <!-- Add Note -->
+             <div class="add-note-overlay d-none">
+                <h6>Add Note</h6>
+                <textarea 
+                rows="5"
+                cols="30" 
+                pInputTextarea 
+                placeholder="Add Note...">
+                </textarea>
+                <div class="overlay-buttons text-end">
+                    <span class="btn-text mx-4">Cancel</span>
+                    <p-button class="btn-primary">Save</p-button>
+                </div>
+             </div>
+             <!-- End of Add Note -->
+            <div class="separator"></div>
+            <div class="add-customer">
+                <span class="material-symbols-outlined" pTooltip="Add Customer">person_add</span>
+            </div>
+            <!-- Add customer -->
+            <div class="add-customer-overlay d-none">
+                <h6>Add Customer</h6>
+
+                <div class="search__item">
+                    <span class="p-input-icon-left">
+                      <i class="pi pi-search"></i>
+                      <input
+                        class="search-field"
+                        type="text"
+                        pInputText
+                        placeholder="Search Products..."
+                      />
+                    </span>
+                  </div>
+                  <div class="customers-list">
+                    <span>Abdallah Saed</span>
+                    <span>Ahmad Kamal</span>
+                    <span>Anas Malik</span>
+                  </div>
+             </div>
+             <!-- End of Add Customer -->
+            <div class="separator"></div>
+            <div class="clear-all">
+                <span class="material-symbols-outlined">clear_all</span>
+                Clear Order
+            </div>
+        </div>
+    </div>
+    <div class="selected-customer">
+        <div><span class="material-symbols-outlined fill">person</span>Ahmad Kamal</div>
+        <span class="material-symbols-outlined customer-delete">close</span>
+    </div>
+    <div class="invoice__contents p-3">
+        <div class="invoice__items">
+            <p-panel [toggleable]="true" class="mb-2 d-block">
+                <ng-template pTemplate="header">
+                    <span class="material-symbols-outlined meal-delete">close</span>
+                    <div class="meal-info">
+                        <div class="meal-name">
+                        Meal Name
+                        <!-- <span class="meal-quantity">24.00 SAR X1</span> -->
+                        </div>
+                        <div class="meal-price">
+                            <span class="meal-quantity">24.00 SAR X1</span>
+                            24.00 SAR
+                        </div>
+                    </div>
+                    <div class="toggle-btn">
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </div>               
+                </ng-template>
+                <div class="row m-0">
+                    <div class="col-lg-6 col-md-12 order-quantity">
+                        <div class="counter-control">
+                            <label class="order-quantity__label">Quantity</label>
+                            <p-inputNumber 
+                            [showButtons]="true" 
+                            buttonLayout="horizontal" 
+                            inputId="horizontal" 
+                            spinnerMode="horizontal" 
+                            placeholder="Quantity"
+                            [step]="0.25"
+                            decrementButtonClass="p-button-danger"
+                            incrementButtonClass="p-button-success"
+                            incrementButtonIcon="pi pi-plus" 
+                            decrementButtonIcon="pi pi-minus" 
+                            />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 order-sale">
+                        <div class="counter-control">
+                            <!-- <label class="w-100">Discount</label> -->
+                            <mat-radio-group class="w-100" aria-label="Select an option">
+                                <mat-radio-button value="1">Percentage</mat-radio-button>
+                                <mat-radio-button value="2">Value</mat-radio-button>
+                              </mat-radio-group>
+                            <!-- <label>Percentage</label>
+                            <label>Value</label> -->
+                            <p-inputNumber 
+                            [showButtons]="true" 
+                            buttonLayout="horizontal" 
+                            inputId="horizontal" 
+                            spinnerMode="horizontal" 
+                            [step]="0.25"
+                            placeholder="Discount"
+                            decrementButtonClass="p-button-danger"
+                            incrementButtonClass="p-button-success"
+                            incrementButtonIcon="pi pi-plus" 
+                            decrementButtonIcon="pi pi-minus"/>
+                          
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+        
+        
+        <div class="invoice__info">
+            <div class="invoice__options">
+                <div>
+                    <span class="material-symbols-outlined">percent</span>
+                    <span class="btn-link">Discount</span>
+                </div>
+                <div class="separator"></div>
+                <div>
+                    <img src="../../../../../assets/images/POS/coupon.svg">
+                    <span class="btn-link">Coupon Code</span>
+                </div>
+                <div class="separator"></div>
+                <div>
+                    <span class="material-symbols-outlined">sell</span>
+                    <span class="btn-link">Promo Code</span>
+                </div>
+            </div>
+            <div class="mt-2">
+                <input type="text" pInputText placeholder="Code" />
+            </div>
+            <div class="invoice__price">
+                <div class="invoice__price__row">
+                    <div class="price__label">Subtotal</div>
+                    <div class="price__info">72.00 SAR</div>
+                </div>
+                <div class="invoice__price__row">
+                    <div class="price__label">VAT 15%</div>
+                    <div class="price__info">10.80 SAR</div>
+                </div>
+                <div class="invoice__price__row">
+                    <div class="price__label">Discount</div>
+                    <div class="price__info">0.00</div>
+                </div>
+                <div class="horizontal-separator mb-3"></div>
+                <div class="invoice__price__row">
+                    <div class="price__label">Net Total</div>
+                    <div class="price__info">82.80 SAR</div>
+                </div>
+            </div>
+            <div class="invoice__actions">
+                <p-button type="Submit" class="btn-sec-2"><span class="material-symbols-outlined fill">pause</span>Hold Order</p-button>
+                <p-button type="Submit" class="btn-primary" (onClick)="showDialog()"><span class="material-symbols-outlined fill">arrow_forward</span>Proceed</p-button>
+            </div>
+            <p-dialog header="Choose a Payment Method" [modal]="true" [(visible)]="visible" [style]="{ width: '35rem' }">
+                <div class="payment-methods">
+                    <div class="active">
+                        <span class="material-symbols-outlined">payments</span>
+                        <span class="payment-methods__label">Cash</span>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">credit_card</span>
+                        <span class="payment-methods__label">Visa</span>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">credit_card_clock</span>
+                        <span class="payment-methods__label">Credit</span>
+                    </div>
+                </div>
+                
+                <div class="dialog-actions">
+                    <span class="btn-text mx-4" (onClick)="visible = false">Cancel</span>
+                    <div>
+                        <!-- <p-button class="btn-sec-2" label="Hold Order" (onClick)="visible = false" /> -->
+                        <p-button class="btn-primary" label="Submit" (onClick)="visible = false" />
+                    </div>
+                </div>
+            </p-dialog>
+        </div>
+    </div>
+</div>
