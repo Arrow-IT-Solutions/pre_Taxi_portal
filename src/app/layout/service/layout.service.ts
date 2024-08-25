@@ -2,6 +2,7 @@ import { Component, ComponentRef, Injectable } from '@angular/core';
 import { AdhostDirective } from 'src/app/Core/directive/adhost.directive';
 import { DynamicDilogComponent } from '../component/dynamic-dilog/dynamic-dilog.component';
 import { Type } from '@angular/compiler';
+import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import * as queryString from 'query-string';
 import * as moment from 'moment';
@@ -12,13 +13,14 @@ import { Router } from '@angular/router';
 })
 export class LayoutService {
   public adHost: AdhostDirective;
+  public translate: TranslateService;
 
   public config = {
     dir: 'ltr',
     lang: 'en',
   };
 
-  constructor() {}
+  constructor() { }
 
   public OpenDialog(componentView: any, componentName: string) {
     this.adHost.viewContainerRef.clear();
@@ -100,6 +102,17 @@ export class LayoutService {
     const isoDate = inputDate.toISOString();
 
     return isoDate;
+  }
+
+  TranslateKey(key: string) {
+    let txt = "";
+    this.translate.get(key).subscribe((res: string) => {
+
+      txt = res;
+
+    });
+
+    return txt
   }
 
 
