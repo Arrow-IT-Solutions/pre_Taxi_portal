@@ -89,7 +89,8 @@
   "FromMonth_Payment" : "From Month",
   "ToMonth_Payment" : "To Month",
   "Payment_Payment" : "Amount",
-  "Driver_Payment" : "Driver"
+  "Driver_Payment" : "Driver",
+  "Save_Payment" : "Save"
 
 
 

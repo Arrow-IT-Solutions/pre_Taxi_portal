@@ -80,7 +80,7 @@
   "CreationDate_Driver" : "تاريخ الانشاء",
   "LicenceExpDate_Driver" : "تاريخ انتهاء الرخصه",
   "Month_Payment" : "الشهر",
-  "ReciptNumber_Payment" : "رقم السند",
+  "ReciptNumber_Payment" : "رقم الوصل",
   "Amount_Payment" : "القيمه",
   "Date_Payment" : "التاريخ",
   "Edit_Payment" : "تعديل",
@@ -90,5 +90,6 @@
   "ToMonth_Payment" : "الى شهر",
   "Payment_Payment" : "القيمه",
   "Driver_Payment" : "السائق",
-  "select" : "اختار"
+  "select" : "اختار",
+  "Save_Payment" : "حفظ"
 }
