@@ -18,14 +18,14 @@
             <div class="col-12 mb-3">
               <div class="p-float-label">
                 <p-dropdown [options]="fromMonths" [(ngModel)]="selectedFromMonth" formControlName="fromMonth"></p-dropdown>
-                <label>{{ 'FromMonth_Payment' | translate }}</label>
+                <label id="month">{{ 'FromMonth_Payment' | translate }}</label>
               </div>
             </div>
 
             <div class="col-12 mb-3">
               <div class="p-float-label">
                 <p-dropdown [options]="toMonths" [(ngModel)]="selectedToMonth" formControlName="toMonth"></p-dropdown>
-                <label>{{ 'ToMonth_Payment' | translate }}</label>
+                <label id="month">{{ 'ToMonth_Payment' | translate }}</label>
               </div>
             </div>
 
@@ -42,7 +42,7 @@
                 <label class="counter-label">{{ 'Payment_Payment' | translate }}</label>
               </div>
             </div>
-            <div class="col-xs-12 mb-3">
+            <div class="col-xs-12 mb-3 " id="save">
               <p-button type="Submit" class="btn-primary" label="{{ 'Save_Payment' | translate }}" [loading]="btnLoading"></p-button>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <span class="material-symbols-outlined">list</span>
             <span>Payments</span>
           </div>
-          <div class="row mb-2 mx-0 p-0 shift-up">
+          <div class="row mb-2 mx-0 p-0  shift-up">
             <!-- <div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
               <div class="flex flex-wrap justify-content-center gap-3">
                 <span class="p-input-icon-left p-0 box">
@@ -67,9 +67,9 @@
             </div> -->
             <p-accordion class="p-0">
               <p-accordionTab>
-                <ng-template pTemplate="header">
-                  <div class="flex align-items-center">
-                    <span class="material-symbols-outlined">tune</span>
+                <ng-template pTemplate="header" >
+                  <div class="flex align-items-center" >
+                    <span class="material-symbols-outlined" >tune</span>
                   </div>
                 </ng-template>
                 <ng-template pTemplate="content">
@@ -97,20 +97,20 @@
 
           <div class="container col-12 row mx-0 mt-2">
             <div *ngFor="let row of data">
-              <div class="card col-12 mx-0 mb-2 row">
-                <div class="col-lg-4 col-md-12 col-sm-12 d-flex card__left">
+              <div class="card  mx-0 mb-2 ">
+                <div class="   card__left">
                   <div class="card__image">
                     <img src="../../../../../assets/images/invoice.jpg" />
                   </div>
-
+                </div>
+                <div class=" card__contents">
                   <div class="name-ID mx-3">
-                    <div class="name mb-1">{{ row.date | date : 'dd-MM-yyyy' }}</div>
+                    <div class="name mb-1">{{row.driver?.driverTranslation![layoutService.config.lang]?.driverName}}</div>
                     <div class="item__ID">
                       <span>ID: {{ row.receiptNo }}</span>
                     </div>
                   </div>
-                </div>
-                <div class="col-lg-7 col-md-12 col-sm-12 card__contents">
+                  <div class="container2">
                   <div class="card__contents__item">
                     <div class="card-label">{{ 'Month_Payment' | translate }}</div>
                     <div class="card-info">{{ row.month }}</div>
@@ -132,7 +132,8 @@
                     <div class="card-info"></div>
                   </div>
                 </div>
-                <div class="col-lg-1 col-md-12">
+                </div>
+                <div class="edit ">
                   <div class="card__actions">
                     <span [matMenuTriggerFor]="menu" class="material-symbols-outlined card__actions__details">more_vert</span>
                     <mat-menu #menu="matMenu">
