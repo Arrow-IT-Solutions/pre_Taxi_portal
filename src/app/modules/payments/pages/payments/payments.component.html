@@ -43,7 +43,7 @@
               </div>
             </div>
             <div class="col-xs-12 mb-3">
-              <p-button type="Submit" class="btn-outline" label="Save"></p-button>
+              <p-button type="Submit" class="btn-primary" label="{{ 'Save_Payment' | translate }}" [loading]="btnLoading"></p-button>
             </div>
           </div>
         </div>
@@ -58,14 +58,13 @@
             <span>Payments</span>
           </div>
           <div class="row mb-2 mx-0 p-0 shift-up">
-            <div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
+            <!-- <div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
               <div class="flex flex-wrap justify-content-center gap-3">
                 <span class="p-input-icon-left p-0 box">
                   <i class="pi pi-search"></i>
-                  <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driverSearch" optionLabel="driverTranslation.ar.driverName" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="driverTranslation.ar.driverName" (onFilter)="FillClient($event)" (ngModelChange)="OnChange()"></p-dropdown>
                 </span>
               </div>
-            </div>
+            </div> -->
             <p-accordion class="p-0">
               <p-accordionTab>
                 <ng-template pTemplate="header">
@@ -81,8 +80,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                       <div class="p-float-label">
-                        <input type="text" pInputText />
-                        <label>Item Code</label>
+                        <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driverSearch" optionLabel="driverTranslation.ar.driverName" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="driverTranslation.ar.driverName" (onFilter)="FillClient($event)" (ngModelChange)="OnChange()"></p-dropdown>
+                        <label>Driver Name</label>
                       </div>
                     </div>
                     <div class="col mt-3 text-end">
