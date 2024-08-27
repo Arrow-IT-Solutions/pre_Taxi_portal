@@ -136,7 +136,9 @@ export class PaymentsComponent {
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString()
     };
-    const response = (await this.paymentService.Search(filter)) as any;
+    const response = (await this.paymentService.Search(filter));
+
+    console.log("Response : ",response.data);
     if (response.data == null || response.data.length == 0) {
       this.data = [];
       this.driverTotal = 0;
