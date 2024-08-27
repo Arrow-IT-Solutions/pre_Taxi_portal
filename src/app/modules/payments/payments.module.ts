@@ -36,7 +36,8 @@ export interface PaymentUpdateRequest extends RequestBase {
   //uuid?: string;
   amount?: string,
   driverIDFK?: string,
-  month?: string,
+  fromMonth?: string,
+  toMonth?: string,
   date?: string,
 }
 

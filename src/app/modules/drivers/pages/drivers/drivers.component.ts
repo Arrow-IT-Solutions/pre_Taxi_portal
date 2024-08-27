@@ -29,7 +29,8 @@ export class DriversComponent {
       ownerName: [''],
       driverName: [''],
       phone: [''],
-      carNumber: ['']
+      carNumber: [''],
+
     });
   }
 
