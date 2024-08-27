@@ -1,6 +1,7 @@
 {
   "CreateRole_Role": "Create Role",
   "UpdateRole_Role": "Update Role",
+  "Field_Requierd" : "Required Field",
 
   "Save_Role": "Save",
   "Search_Role": "Search",
@@ -90,10 +91,9 @@
   "ToMonth_Payment" : "To Month",
   "Payment_Payment" : "Amount",
   "Driver_Payment" : "Driver",
+  "select" : "Select",
+  "Error_ToMonth_Less_Than_FromMonth" : "To Month can't be less than From Month",
   "Save_Payment" : "Save"
-
-
-
 
 
 }
