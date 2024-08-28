@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseApiUrl: 'https://taxi-api-dev.apps-jo.com'
+  baseApiUrl: 'https://localhost:51417'
 };
