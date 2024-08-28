@@ -16,37 +16,43 @@
           </div>
         </ng-template>
         <ng-template pTemplate="content">
-          <div class="m-0  box2 d-flex">
+          <div class="m-0 box2 d-flex">
             <div class="filter-title">
               <span class="material-symbols-outlined">filter_alt</span>
               <span>Filter By</span>
             </div>
             <div class="container">
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-              <div class="p-float-label">
-                <span class="p-input-icon-left p-0">
-                  <div class="p-float-label">
-                    <input type="text" pInputText formControlName="ownerName" (ngModelChange)="OnChange()" class="search-field" type="text" />
-                    <label>{{ 'Search_OwnerName' | translate }}</label>
-                  </div>
-                </span>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                <div class="p-float-label">
+                  <span class="p-input-icon-left p-0">
+                    <div class="p-float-label">
+                      <input type="text" pInputText formControlName="ownerName" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                      <label>{{ 'Search_OwnerName' | translate }}</label>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                <div class="p-float-label">
+                  <input type="text" pInputText formControlName="phone" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <label>{{ 'Search_DriverPhone' | translate }}</label>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                <div class="p-float-label">
+                  <input type="text" pInputText formControlName="carNumber" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <label>{{ 'Search_CarNumber' | translate }}</label>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                <div class="p-float-label">
+                  <input type="text" pInputText formControlName="carType" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <label>{{ 'Search_CarType' | translate }}</label>
+                </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-              <div class="p-float-label">
-                <input type="text" pInputText formControlName="phone" (ngModelChange)="OnChange()" class="search-field" type="text" />
-                <label>{{ 'Search_DriverPhone' | translate }}</label>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
-              <div class="p-float-label">
-                <input type="text" pInputText formControlName="carNumber" (ngModelChange)="OnChange()" class="search-field" type="text" />
-                <label>{{ 'Search_CarNumber' | translate }}</label>
-              </div>
-            </div>
-          </div>
 
-            <div class="col result ">
+            <div class="col result">
               <p-button class="btn-outline-secondary" (onClick)="resetform()">
                 <span class="material-symbols-outlined">restart_alt</span>
               </p-button>
@@ -114,7 +120,6 @@
                   <div class="card-label">{{ 'DriverPhone_Driver' | translate }}</div>
                   <div class="card-info">{{ row.driverPhone }}</div>
                 </div>
-                
               </div>
             </div>
 

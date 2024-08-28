@@ -10,8 +10,8 @@
           <div class="col-12 row m-0 p-0">
             <div class="col-12 mb-3">
               <div class="p-float-label">
-                <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driver" optionLabel="driverTranslation.ar.driverName" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="driverTranslation.ar.driverName" (onFilter)="FillClient($event)"></p-dropdown>
-                <label>{{ 'Driver_Payment' | translate }}</label>
+                <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driver" optionLabel="carNumber" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="carNumber" (onFilter)="FillClient($event)"></p-dropdown>
+                <label>{{ 'CarNumber_Payment' | translate }}</label>
                 <small *ngIf="submitted && form['driver'].errors" class="errorValidation" id="username1-help">
                   {{ 'Field_Requierd' | translate }}
                 </small>
@@ -51,6 +51,15 @@
               </div>
             </div>
 
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="year" buttonLayout="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+                <label class="counter-label">{{ 'Year_Payment' | translate }}</label>
+                <small *ngIf="submitted && form['year'].errors" class="errorValidation" id="username1-help">
+                  {{ 'Field_Requierd' | translate }}
+                </small>
+              </div>
+            </div>
             <div class="col-12 mb-3">
               <div class="p-float-label">
                 <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="amount" buttonLayout="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
@@ -98,8 +107,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                       <div class="p-float-label">
-                        <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driverSearch" optionLabel="driverTranslation.ar.driverName" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="driverTranslation.ar.driverName" (onFilter)="FillClient($event)" (ngModelChange)="OnChange()"></p-dropdown>
-                        <label>Driver Name</label>
+                        <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driverSearch" optionLabel="carNumber" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="carNumber" (onFilter)="FillClient($event)" (ngModelChange)="OnChange()"></p-dropdown>
+                        <label>{{ 'CarNumber_Payment' | translate }}</label>
                       </div>
                     </div>
                     <div class="col mt-3 text-end">
@@ -123,15 +132,16 @@
                 </div>
                 <div class="card__contents">
                   <div class="name-ID mx-3">
-                    <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.driverName }}</div>
+                    <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.ownerName }}</div>
+                    <div class="name mb-1">{{ row.driver?.carNumber }} {{ (row.driver?.driverTranslation)![layoutService.config.lang]?.carType }}</div>
                     <div class="item__ID">
                       <span>ID: {{ row.receiptNo }}</span>
                     </div>
                   </div>
                   <div class="container2">
                     <div class="card__contents__item">
-                      <div class="card-label">{{ 'Month_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.month }}</div>
+                      <div class="card-label">{{ 'Year_Payment' | translate }}</div>
+                      <div class="card-info">{{ row.year }}</div>
                     </div>
                     <div class="card__contents__item">
                       <div class="card-label">{{ 'ReciptNumber_Payment' | translate }}</div>
@@ -139,7 +149,7 @@
                     </div>
                     <div class="card__contents__item">
                       <div class="card-label">{{ 'Amount_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.amount }} {{ 'JOD' | translate }}</div>
+                      <div class="card-info">{{ row.amount | number : '1.1-2' }} {{ 'JOD' | translate }}</div>
                     </div>
                     <div class="card__contents__item">
                       <div class="card-label">{{ 'Date_Payment' | translate }}</div>

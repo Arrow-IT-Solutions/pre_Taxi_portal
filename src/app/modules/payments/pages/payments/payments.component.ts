@@ -46,7 +46,9 @@ export class PaymentsComponent {
       date: ['', Validators.required],
       fromDate: [''],
       toDate: [''],
-      driver: ['', Validators.required]
+      driver: ['', Validators.required],
+      year: ['', Validators.required]
+
 
     });
   }
@@ -87,6 +89,7 @@ export class PaymentsComponent {
       driverName: '',
       includePayments: '0',
       carNumber: '',
+      carType: '',
       pageIndex: "",
       pageSize: '100000'
 
@@ -138,6 +141,7 @@ export class PaymentsComponent {
     let filter: PaymentSearchRequest = {
       driverIDFK: this.dataForm.controls['driverSearch'].value == null ? '' : this.dataForm.controls['driverSearch'].value.toString(),
       includeDriver: '1',
+      includeMonths: '0',
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString()
     };
@@ -176,6 +180,7 @@ export class PaymentsComponent {
         amount: this.paymentService.SelectedData?.amount,
         fromMonth: Number(fromMonth),
         toMonth: Number(toMonth),
+        year: this.paymentService.SelectedData?.year
       };
       this.dataForm.patchValue(temp);
     }
@@ -217,6 +222,7 @@ export class PaymentsComponent {
       phone: "",
       ownerName: '',
       carNumber: '',
+      carType: '',
       pageIndex: "",
     }
     const response = await this.driverService.Search(filter) as any
@@ -259,7 +265,11 @@ export class PaymentsComponent {
         date: date.toISOString(),
         fromMonth: this.dataForm.controls['fromMonth'].value.toString(),
         toMonth: this.dataForm.controls['toMonth'].value.toString(),
+        year: this.dataForm.controls['year'].value.toString(),
+
       };
+
+
 
       response = await this.paymentService.Update(driver);
     } else {
@@ -270,8 +280,9 @@ export class PaymentsComponent {
         toMonth: this.dataForm.controls['toMonth'].value.toString(),
         amount: this.dataForm.controls['amount'].value.toString(),
         date: date.toISOString(),
+        year: this.dataForm.controls['year'].value.toString(),
       };
-
+      console.log(payment)
       response = await this.paymentService.Add(payment);
     }
 

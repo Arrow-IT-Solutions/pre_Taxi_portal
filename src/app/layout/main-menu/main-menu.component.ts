@@ -13,7 +13,7 @@ export class MainMenuComponent implements OnInit {
   multiple: boolean = false;
   subMenuSelected: NavbarData;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   ngOnInit() {
     this.subMenuSelected = this.navData[1];

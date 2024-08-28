@@ -23,7 +23,7 @@ const routes: Routes = [
   //         import('./modules/home/home.module').then(
   //           (m) => m.HomeModule
   //         ),
-  //     },     
+  //     },
   //   ],
   // },
   {
@@ -31,7 +31,13 @@ const routes: Routes = [
     component: ContentLayoutAdminComponent,
     // canActivate: [AuthGuardService],
     children: [
-      
+      {
+        path: 'months',
+        loadChildren: () =>
+          import('./modules/months/months.module').then(
+            (m) => m.MonthsModule
+          ),
+      },
       {
         path: 'payments',
         loadChildren: () =>
@@ -77,4 +83,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
