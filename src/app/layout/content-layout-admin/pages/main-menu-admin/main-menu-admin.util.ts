@@ -13,21 +13,28 @@ export interface NavbarData {
 }
 
 export const navbarData: NavbarData[] = [
-  
+
   {
     label: 'Drivers',
-    labelar : 'السائقين',
+    labelar: 'السائقين',
     id: 'Drivers',
     icon: 'receipt_long',
-    routeLink :"drivers"
+    routeLink: "drivers"
   },
   {
     label: 'Payments',
-    labelar : 'الدفعات',
+    labelar: 'الدفعات',
     id: 'Payments',
     icon: 'receipt_long',
-    routeLink :"payments"
+    routeLink: "payments"
   },
- 
+  {
+    label: 'Monthly Payments',
+    labelar: 'الدفعات الشهريه',
+    id: 'Months',
+    icon: 'receipt_long',
+    routeLink: "months"
+  },
+
 
 ];
