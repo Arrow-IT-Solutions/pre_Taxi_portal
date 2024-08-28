@@ -1,6 +1,7 @@
 {
   "CreateRole_Role": "انشاء دور",
   "UpdateRole_Role": "تعديل الدور",
+  "Field_Requierd" : "حقل مطلوب",
   "Save_Role": "حفظ",
   "Search_Role": "بحث",
   "FilterBy_Role": "بحث من خلال",
@@ -91,5 +92,7 @@
   "Payment_Payment" : "القيمه",
   "Driver_Payment" : "السائق",
   "select" : "اختار",
-  "Save_Payment" : "حفظ"
+  "Save_Payment" : "حفظ",
+  "Error_ToMonth_Less_Than_FromMonth" : "الى شهر لا يمكن ان يكون أقل من من شهر"
+
 }

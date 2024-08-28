@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { PaymentRequest, PaymentResponse, PaymentUpdateRequest, PaymentSearchRequest } from '../../payments.module';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PaginatorState } from 'primeng/paginator';
 import { PaymentService } from 'src/app/Core/services/payment.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,6 +20,7 @@ import { from } from 'rxjs';
 export class PaymentsComponent {
   dataForm!: FormGroup;
   submitted: boolean = false;
+  invalidRange: boolean = false
   btnLoading: boolean = false;
   loading: boolean = false;
   data: PaymentResponse[] = [];
@@ -48,6 +49,10 @@ export class PaymentsComponent {
       driver: ['', Validators.required]
 
     });
+  }
+
+  get form(): { [key: string]: AbstractControl } {
+    return this.dataForm.controls;
   }
 
   async ngOnInit() {
@@ -138,7 +143,6 @@ export class PaymentsComponent {
     };
     const response = (await this.paymentService.Search(filter));
 
-    console.log("Response : ",response.data);
     if (response.data == null || response.data.length == 0) {
       this.data = [];
       this.driverTotal = 0;
@@ -154,20 +158,27 @@ export class PaymentsComponent {
 
   OpenDialog(row: PaymentResponse | null = null) {
 
-
     this.paymentService.SelectedData = row;
     this.dataForm.controls['driver'].disable();
 
 
-    let temp = {
-      driver: this.paymentService.SelectedData?.driver?.uuid,
-      date: this.paymentService.SelectedData?.date,
-      amount: this.paymentService.SelectedData?.amount,
-      fromMonth: Number(this.paymentService.SelectedData?.month),
-      toMonth: Number(this.paymentService.SelectedData?.month),
-    };
-    this.dataForm.patchValue(temp);
+    let months = this.paymentService.SelectedData?.month
 
+    if (typeof months == 'string' && months.length > 0) {
+      let monthArray = months.split(',');
+      let fromMonth = monthArray[0];
+      let toMonth = monthArray[monthArray.length - 1];
+
+
+      let temp = {
+        driver: this.paymentService.SelectedData?.driver?.uuid,
+        date: this.paymentService.SelectedData?.date,
+        amount: this.paymentService.SelectedData?.amount,
+        fromMonth: Number(fromMonth),
+        toMonth: Number(toMonth),
+      };
+      this.dataForm.patchValue(temp);
+    }
 
   }
 
@@ -217,10 +228,14 @@ export class PaymentsComponent {
     try {
       this.btnLoading = true;
 
-
-
       if (this.dataForm.invalid) {
         this.submitted = true;
+        return;
+      }
+
+      if (Number(this.dataForm.controls['fromMonth'].value) > Number(this.dataForm.controls['toMonth'].value)) {
+        this.invalidRange = true;
+        this.submitted = true
         return;
       }
       await this.Save();
@@ -242,7 +257,8 @@ export class PaymentsComponent {
         driverIDFK: this.dataForm.controls['driver'].value.toString(),
         amount: this.dataForm.controls['amount'].value.toString(),
         date: date.toISOString(),
-        month: this.dataForm.controls['fromMonth'].value.toString(),
+        fromMonth: this.dataForm.controls['fromMonth'].value.toString(),
+        toMonth: this.dataForm.controls['toMonth'].value.toString(),
       };
 
       response = await this.paymentService.Update(driver);
