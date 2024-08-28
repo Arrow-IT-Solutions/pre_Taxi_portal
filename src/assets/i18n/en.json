@@ -93,7 +93,16 @@
   "Driver_Payment" : "Driver",
   "select" : "Select",
   "Error_ToMonth_Less_Than_FromMonth" : "To Month can't be less than From Month",
-  "Save_Payment" : "Save"
+  "Save_Payment" : "Save",
+  "Search_Year" : "Year",
+  "Search_Month" : "Month",
+  "Year_Months" : "Year",
+  "Month_Months" : "Month",
+  "Amount_Months" : "Amount",
+  "ReceiptNo_Months" : "Receipt No",
+  "CarNumber_Payment" : "Car Number",
+  "Year_Payment" : "Year"
+
 
 
 }

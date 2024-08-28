@@ -34,7 +34,7 @@ import { DisableElementDirective } from './Core/directive/disable-element.direct
 
 @NgModule({
   declarations: [
-     AppComponent,
+    AppComponent,
     MainMenuComponent,
     HeaderComponent,
     ContentLayoutComponent,
@@ -77,14 +77,14 @@ export class AppModule implements OnInit {
     @Inject(DOCUMENT) private document: Document
   ) {
     this.localService.GetStorge();
-    
+
     this.translate.use(layoutService.config.lang);
-    
+
     this.document.documentElement.lang = layoutService.config.lang;
-    
+
   }
 
-  async ngOnInit() {}
+  async ngOnInit() { }
 }
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

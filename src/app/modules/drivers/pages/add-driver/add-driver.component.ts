@@ -22,18 +22,15 @@ export class AddDriverComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService) {
     this.dataForm = formBuilder.group({
       ownerNameAr: ['', Validators.required],
-      ownerNameEn: ['', Validators.required],
-      ownerNationalID: ['', Validators.required],
-      ownerPhone: ['', Validators.required],
-      carTypeEn: ['', Validators.required],
-      carTypeAr: ['', Validators.required],
-      carModel: ['', Validators.required],
-      driverNameEn: ['', Validators.required],
-      driverNameAr: ['', Validators.required],
-      driverNationalID: ['', Validators.required],
-      driverPhone: ['', Validators.required],
+      ownerNationalID: [''],
+      ownerPhone: [''],
+      carTypeAr: [''],
+      carModel: [''],
+      driverNameAr: [''],
+      driverNationalID: [''],
+      driverPhone: [''],
       carNumber: ['', Validators.required],
-      licesnceExpDate: ['', Validators.required],
+      licesnceExpDate: [''],
 
 
     });
@@ -77,36 +74,37 @@ export class AddDriverComponent implements OnInit {
   }
 
   async Save() {
+
     let response;
     let licenceExpDate = new Date(this.dataForm.controls['licesnceExpDate'].value)
 
     var driverTranslation = [
       {
         ownerName: this.dataForm.controls['ownerNameAr'].value.toString(),
-        driverName: this.dataForm.controls['driverNameAr'].value.toString(),
-        carType: this.dataForm.controls['carTypeAr'].value.toString(),
+        driverName: this.dataForm.controls['driverNameAr'].value == null ? '' : this.dataForm.controls['driverNameAr'].value,
+        carType: this.dataForm.controls['carTypeAr'].value == null ? '' : this.dataForm.controls['carTypeAr'].value,
         language: 'ar'
       },
       {
-        ownerName: this.dataForm.controls['ownerNameEn'].value.toString(),
-        driverName: this.dataForm.controls['driverNameEn'].value.toString(),
-        carType: this.dataForm.controls['carTypeEn'].value.toString(),
+        ownerName: this.dataForm.controls['ownerNameAr'].value.toString(),
+        driverName: this.dataForm.controls['driverNameAr'].value == null ? '' : this.dataForm.controls['driverNameAr'].value,
+        carType: this.dataForm.controls['carTypeAr'].value == null ? '' : this.dataForm.controls['carTypeAr'].value,
         language: 'en'
       }
     ];
-
+    console.log('HERE')
     if (this.driverService.SelectedData != null) {
       // update
 
       var driver: DriverUpdateRequest = {
         uuid: this.driverService.SelectedData?.uuid?.toString(),
         driverTranslation: driverTranslation,
-        ownerPhone: this.dataForm.controls['ownerPhone'].value.toString(),
-        ownerNationalID: this.dataForm.controls['ownerNationalID'].value.toString(),
-        driverPhone: this.dataForm.controls['driverPhone'].value.toString(),
-        driverNationalID: this.dataForm.controls['driverNationalID'].value.toString(),
-        carModel: this.dataForm.controls['carModel'].value.toString(),
-        carNumber: this.dataForm.controls['carNumber'].value.toString(),
+        ownerPhone: this.dataForm.controls['ownerPhone'].value == null ? '' : this.dataForm.controls['ownerPhone'].value,
+        ownerNationalID: this.dataForm.controls['ownerNationalID'].value == null ? '' : this.dataForm.controls['ownerNationalID'].value,
+        driverPhone: this.dataForm.controls['driverPhone'].value == null ? '' : this.dataForm.controls['driverPhone'].value,
+        driverNationalID: this.dataForm.controls['driverNationalID'].value == null ? '' : this.dataForm.controls['driverNationalID'].value,
+        carModel: this.dataForm.controls['carModel'].value == null ? '' : this.dataForm.controls['carModel'].value,
+        carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
 
@@ -115,14 +113,16 @@ export class AddDriverComponent implements OnInit {
       // add
       var driver: DriverRequest = {
         driverTranslation: driverTranslation,
-        ownerPhone: this.dataForm.controls['ownerPhone'].value.toString(),
-        ownerNationalID: this.dataForm.controls['ownerNationalID'].value.toString(),
-        driverPhone: this.dataForm.controls['driverPhone'].value.toString(),
-        driverNationalID: this.dataForm.controls['driverNationalID'].value.toString(),
-        carModel: this.dataForm.controls['carModel'].value.toString(),
-        carNumber: this.dataForm.controls['carNumber'].value.toString(),
+        ownerPhone: this.dataForm.controls['ownerPhone'].value == null ? '' : this.dataForm.controls['ownerPhone'].value,
+        ownerNationalID: this.dataForm.controls['ownerNationalID'].value == null ? '' : this.dataForm.controls['ownerNationalID'].value,
+        driverPhone: this.dataForm.controls['driverPhone'].value == null ? '' : this.dataForm.controls['driverPhone'].value,
+        driverNationalID: this.dataForm.controls['driverNationalID'].value == null ? '' : this.dataForm.controls['driverNationalID'].value,
+        carModel: this.dataForm.controls['carModel'].value == null ? '' : this.dataForm.controls['carModel'].value,
+        carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
+
+      console.log(driver)
 
       response = await this.driverService.Add(driver);
     }
@@ -149,15 +149,11 @@ export class AddDriverComponent implements OnInit {
   async FillData() {
     // var translateAr = this.roleService.SelectedData?.roleTranslation?.find((item) => item.language == 'ar');
     // var translateEn = this.roleService.SelectedData?.roleTranslation?.find((item) => item.language == 'en');
-    console.log("this.roleService.SelectedData?.roleTranslation!['ar'].name : ", this.driverService.SelectedData);
 
     let temp = {
       ownerNameAr: this.driverService.SelectedData?.driverTranslation!['ar'].ownerName,
-      ownerNameEn: this.driverService.SelectedData?.driverTranslation!['en'].ownerName,
       driverNameAr: this.driverService.SelectedData?.driverTranslation!['ar'].driverName,
-      driverNameEn: this.driverService.SelectedData?.driverTranslation!['en'].driverName,
       carTypeAr: this.driverService.SelectedData?.driverTranslation!['ar'].carType,
-      carTypeEn: this.driverService.SelectedData?.driverTranslation!['en'].carType,
       ownerPhone: this.driverService.SelectedData?.ownerPhone,
       driverNationalID: this.driverService.SelectedData?.driverNationalID,
       driverPhone: this.driverService.SelectedData?.driverPhone,

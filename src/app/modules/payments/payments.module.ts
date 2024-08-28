@@ -29,6 +29,7 @@ export interface PaymentRequest extends RequestBase {
   fromMonth?: string,
   toMonth?: string,
   date?: string,
+  year?: string,
 
 }
 
@@ -39,12 +40,14 @@ export interface PaymentUpdateRequest extends RequestBase {
   fromMonth?: string,
   toMonth?: string,
   date?: string,
+  year?: string
 }
 
 export interface PaymentSearchRequest extends SearchRequestBase {
   uuid?: string;
   driverIDFK?: string;
   includeDriver?: string;
+  includeMonths?: string;
 }
 
 export interface PaymentResponse extends ResponseBase {
@@ -55,4 +58,5 @@ export interface PaymentResponse extends ResponseBase {
   date?: string,
   receiptNo?: string
   driver?: DriverResponse;
+  year?: string
 }
