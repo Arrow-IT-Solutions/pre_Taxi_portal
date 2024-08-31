@@ -101,7 +101,12 @@
   "Amount_Months" : "Amount",
   "ReceiptNo_Months" : "Receipt No",
   "CarNumber_Payment" : "Car Number",
-  "Year_Payment" : "Year"
+  "Year_Payment" : "Year",
+  "FromDate_Payment" : "From Date",
+  "ToDate_Payment" : "To Date",
+  "FromDate_Months" : "From Date",
+  "ToDate_Months" : "To Date",
+  "PayDate_Months" : "Pay Date"
 
 
 

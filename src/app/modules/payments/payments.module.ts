@@ -46,6 +46,8 @@ export interface PaymentUpdateRequest extends RequestBase {
 export interface PaymentSearchRequest extends SearchRequestBase {
   uuid?: string;
   driverIDFK?: string;
+  fromDate: string;
+  toDate: string;
   includeDriver?: string;
   includeMonths?: string;
 }

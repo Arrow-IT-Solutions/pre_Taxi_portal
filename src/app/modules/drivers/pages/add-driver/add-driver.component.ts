@@ -92,7 +92,6 @@ export class AddDriverComponent implements OnInit {
         language: 'en'
       }
     ];
-    console.log('HERE')
     if (this.driverService.SelectedData != null) {
       // update
 
@@ -121,8 +120,6 @@ export class AddDriverComponent implements OnInit {
         carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
-
-      console.log(driver)
 
       response = await this.driverService.Add(driver);
     }

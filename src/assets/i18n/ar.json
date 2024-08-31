@@ -101,6 +101,11 @@
   "Amount_Months" : "القيمة",
   "ReceiptNo_Months" : "رقم الوصل",
   "CarNumber_Payment" : "رقم السيارة",
-  "Year_Payment" : "السنة"
+  "Year_Payment" : "السنة",
+  "FromDate_Payment" : "من تاريخ",
+  "ToDate_Payment" : "الى تاريخ",
+  "FromDate_Months" : "من تاريخ",
+  "ToDate_Months" : "الى تاريخ",
+  "PayDate_Months" : "تاريخ الدفعه"
 
 }

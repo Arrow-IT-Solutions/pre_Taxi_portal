@@ -10,7 +10,9 @@
           <div class="col-12 row m-0 p-0">
             <div class="col-12 mb-3">
               <div class="p-float-label">
-                <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driver" optionLabel="carNumber" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="carNumber" (onFilter)="FillClient($event)"></p-dropdown>
+                <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driver"
+                  optionLabel="carNumber" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true"
+                  filterBy="carNumber" (onFilter)="FillClient($event)"></p-dropdown>
                 <label>{{ 'CarNumber_Payment' | translate }}</label>
                 <small *ngIf="submitted && form['driver'].errors" class="errorValidation" id="username1-help">
                   {{ 'Field_Requierd' | translate }}
@@ -20,7 +22,8 @@
 
             <div class="col-12 mb-3">
               <div class="p-float-label">
-                <p-dropdown [options]="fromMonths" [(ngModel)]="selectedFromMonth" formControlName="fromMonth"></p-dropdown>
+                <p-dropdown [options]="fromMonths" [(ngModel)]="selectedFromMonth"
+                  formControlName="fromMonth"></p-dropdown>
                 <label id="month">{{ 'FromMonth_Payment' | translate }}</label>
                 <small *ngIf="submitted && form['fromMonth'].errors" class="errorValidation" id="username1-help">
                   {{ 'Field_Requierd' | translate }}
@@ -53,8 +56,8 @@
 
             <div class="col-12 mb-3">
               <div class="p-float-label">
-                <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="year" buttonLayout="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
-                <label class="counter-label">{{ 'Year_Payment' | translate }}</label>
+                <p-dropdown [options]="years" [(ngModel)]="selectedYear" formControlName="year"></p-dropdown>
+                <label id="month">{{ 'Year_Payment' | translate }}</label>
                 <small *ngIf="submitted && form['year'].errors" class="errorValidation" id="username1-help">
                   {{ 'Field_Requierd' | translate }}
                 </small>
@@ -62,7 +65,10 @@
             </div>
             <div class="col-12 mb-3">
               <div class="p-float-label">
-                <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="amount" buttonLayout="horizontal" decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+                <p-inputNumber [showButtons]="true" [step]="1" [min]="0" formControlName="amount"
+                  buttonLayout="horizontal" decrementButtonClass="p-button-danger"
+                  incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                  decrementButtonIcon="pi pi-minus"></p-inputNumber>
                 <label class="counter-label">{{ 'Payment_Payment' | translate }}</label>
                 <small *ngIf="submitted && form['amount'].errors" class="errorValidation" id="username1-help">
                   {{ 'Field_Requierd' | translate }}
@@ -70,7 +76,8 @@
               </div>
             </div>
             <div class="col-xs-12 mb-3" id="save">
-              <p-button type="Submit" class="btn-primary" label="{{ 'Save_Payment' | translate }}" [loading]="btnLoading"></p-button>
+              <p-button type="Submit" class="btn-primary" label="{{ 'Save_Payment' | translate }}"
+                [loading]="btnLoading"></p-button>
             </div>
           </div>
         </div>
@@ -107,8 +114,29 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                       <div class="p-float-label">
-                        <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}" formControlName="driverSearch" optionLabel="carNumber" optionValue="uuid" class="dropDown" [filter]="true" [showClear]="true" filterBy="carNumber" (onFilter)="FillClient($event)" (ngModelChange)="OnChange()"></p-dropdown>
+                        <p-dropdown [options]="drivers" placeholder="{{ 'select' | translate }}"
+                          formControlName="driverSearch" optionLabel="carNumber" optionValue="uuid" class="dropDown"
+                          [filter]="true" [showClear]="true" filterBy="carNumber" (onFilter)="FillClient($event)"
+                          (ngModelChange)="OnChange()"></p-dropdown>
                         <label>{{ 'CarNumber_Payment' | translate }}</label>
+                      </div>
+
+
+
+
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                      <div class="p-float-label">
+                        <p-calendar [showIcon]="true" formControlName="fromDate"
+                          (ngModelChange)="OnChange()"></p-calendar>
+                        <label>{{ 'FromDate_Payment' | translate }}</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
+                      <div class="p-float-label">
+                        <p-calendar [showIcon]="true" formControlName="toDate"
+                          (ngModelChange)="OnChange()"></p-calendar>
+                        <label>{{ 'ToDate_Payment' | translate }}</label>
                       </div>
                     </div>
                     <div class="col mt-3 text-end">
@@ -132,13 +160,19 @@
                 </div>
                 <div class="card__contents">
                   <div class="name-ID mx-3">
-                    <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.ownerName }}</div>
-                    <div class="name mb-1">{{ row.driver?.carNumber }} {{ (row.driver?.driverTranslation)![layoutService.config.lang]?.carType }}</div>
+                    <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.ownerName }}
+                    </div>
+                    <div class="name mb-1">{{ row.driver?.carNumber }} {{
+                      (row.driver?.driverTranslation)![layoutService.config.lang]?.carType }}</div>
                     <div class="item__ID">
                       <span>ID: {{ row.receiptNo }}</span>
                     </div>
                   </div>
                   <div class="container2">
+                    <div class="card__contents__item">
+                      <div class="card-label">{{ 'Month_Payment' | translate }}</div>
+                      <div class="card-info">{{ row.month }}</div>
+                    </div>
                     <div class="card__contents__item">
                       <div class="card-label">{{ 'Year_Payment' | translate }}</div>
                       <div class="card-info">{{ row.year }}</div>
@@ -163,7 +197,8 @@
                 </div>
                 <div class="edit">
                   <div class="card__actions">
-                    <span [matMenuTriggerFor]="menu" class="material-symbols-outlined card__actions__details">more_vert</span>
+                    <span [matMenuTriggerFor]="menu"
+                      class="material-symbols-outlined card__actions__details">more_vert</span>
                     <mat-menu #menu="matMenu">
                       <button mat-menu-item (click)="OpenDialog(row)">
                         <span class="material-symbols-outlined">edit</span>
@@ -179,7 +214,8 @@
               </div>
             </div>
           </div>
-          <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
+          <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+            (onPageChange)="paginate($event)"></p-paginator>
         </div>
       </div>
     </div>

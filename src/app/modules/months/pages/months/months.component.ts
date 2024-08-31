@@ -29,6 +29,8 @@ export class MonthsComponent {
       year: [''],
       carNumber: [''],
       month: [''],
+      fromDate: [''],
+      toDate: ['']
     });
   }
 
@@ -72,10 +74,15 @@ export class MonthsComponent {
     this.monthService.SelectedData = null;
     this.monthTotal = 0;
 
+    const fromDate = this.dataForm.controls['fromDate'].value == '' ? '' : new Date(this.dataForm.controls['fromDate'].value.toISOString())
+    const toDate = this.dataForm.controls['toDate'].value == '' ? '' : new Date(this.dataForm.controls['toDate'].value.toISOString())
+
     let filter: MonthsSearchRequest = {
       carNumber: this.dataForm.controls['carNumber'].value,
       year: this.dataForm.controls['year'].value,
       month: this.dataForm.controls['month'].value,
+      fromDate: fromDate.toLocaleString(),
+      toDate: toDate.toLocaleString(),
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString()
     };
@@ -97,6 +104,11 @@ export class MonthsComponent {
   async resetform() {
     this.isResetting = true;
     this.dataForm.reset();
+    let temp = {
+      fromDate: '',
+      toDate: '',
+    };
+    this.dataForm.patchValue(temp);
     await this.FillData();
     this.isResetting = false;
   }

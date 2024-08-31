@@ -49,6 +49,8 @@ export interface MonthsSearchRequest extends SearchRequestBase {
   carNumber?: string,
   year?: string,
   month?: string,
+  fromDate: string;
+  toDate: string;
   includePayments?: string;
 }
 
@@ -61,4 +63,5 @@ export interface MonthsResponse extends ResponseBase {
   receiptNo?: string,
   year?: string,
   payment?: PaymentResponse;
+  creationDate: string,
 }
