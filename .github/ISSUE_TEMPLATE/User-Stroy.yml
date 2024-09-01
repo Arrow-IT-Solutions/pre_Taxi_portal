@@ -29,8 +29,6 @@ body:
         - High (Default)
         - Medium
         - Low
-        -Immediate
-        -Blocker
       default: 0
     validations:
       required: true
