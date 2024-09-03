@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-12 side-icon">
             <span class="material-symbols-outlined">list</span>
-            <span>Payments</span>
+            <span>{{'Payments' | translate}}</span>
           </div>
           <div class="row mb-2 mx-0 p-0  shift-up">
             <!-- <div class="col-lg-3 col-md-10 col p-0 voucher-items__search">
@@ -94,7 +94,7 @@
               </p-accordionTab>
             </p-accordion>
           </div>
-
+<ng-container *ngIf="!loading; else ListView">
           <div class="container col-12 row mx-0 mt-2">
             <div *ngFor="let row of data">
               <div class="card  mx-0 mb-2 ">
@@ -152,8 +152,18 @@
             </div>
           </div>
           <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
+        
+      </ng-container>
+      <ng-template #ListView>
+        <div class="row">
+          <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+            <p-skeleton height="7.5rem"></p-skeleton>
+          </div>
         </div>
+      </ng-template>
+    </div>
       </div>
+      
     </div>
 
     <!-- <div class="col-xs-12 text-end mt-4">
