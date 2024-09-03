@@ -52,6 +52,13 @@ const routes: Routes = [
             (m) => m.DriversModule
           ),
       },
+      {
+        path: 'expiredLicenceReport',
+        loadChildren: () =>
+          import('./modules/reports/expiredLicenceReport.module').then(
+            (m) => m.ExpiredLicenceModule
+          ),
+      },
     ],
   },
 
