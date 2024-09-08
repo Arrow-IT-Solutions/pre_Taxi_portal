@@ -116,7 +116,8 @@
   "LicenceExpDate_ExpiredLicence" : "Licence Expiry Date",
   "CreationDate_ExpiredLicence" : "Creation Date",
   "CarModel_ExpiredLicence" : "Car Model",
-  "CarType_ExpiredLicence" : "Car Type"
+  "CarType_ExpiredLicence" : "Car Type",
+  "Print_Payment" : "Print"
 
 
 

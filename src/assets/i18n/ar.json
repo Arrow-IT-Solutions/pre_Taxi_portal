@@ -116,6 +116,7 @@
   "LicenceExpDate_ExpiredLicence" : "تاريخ انتهاء الرخصة",
   "CreationDate_ExpiredLicence" : "تاريخ الانشاء",
   "CarModel_ExpiredLicence" : "موديل السيارة",
-  "CarType_ExpiredLicence" : "نوع السيارة"
+  "CarType_ExpiredLicence" : "نوع السيارة",
+  "Print_Payment" : "طباعة"
 
 }
