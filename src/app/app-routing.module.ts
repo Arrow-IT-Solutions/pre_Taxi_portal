@@ -62,10 +62,10 @@ const routes: Routes = [
     ],
   },
   {
-    path:'receipt',
-    children:[
+    path: 'receipt',
+    children: [
       {
-        path:'',
+        path: '',
         loadChildren: () =>
           import('./modules/receipt/receipt.module').then(
             (m) => m.ReceiptModule
