@@ -61,10 +61,10 @@ export class ReceiptComponent implements OnInit {
       filename: 'generated.pdf',
       image: { type: 'jpeg', quality: 1 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      jsPDF: { unit: 'mm', format: 'a5', orientation: 'portrait' }
     };
 
-    html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
+    html2pdf().from(element).toPdf(opt).get('pdf').then(function (pdf) {
       window.open(pdf.output('bloburl'), '_blank');
     });
 

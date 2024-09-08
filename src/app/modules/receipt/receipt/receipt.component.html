@@ -1,5 +1,5 @@
-<div class="header">
-  <div id="pdfTable" #pdfTable [ngStyle]="{ direction: 'rtl' }">
+<!-- <div class="header a5-page" id="pdfTable" #pdfTable >
+  <div  [ngStyle]="{ direction: 'rtl' }">
     <span id="one">بسم الله الرحمن الرحيم</span>
     <div class="header-tittle">
       <div class="left">
@@ -89,4 +89,21 @@
   </div>
   <button class="btn btn-primary" (click)="downloadAsPDF()">
     Preview Report
-  </button>
+  </button> 
+-->
+
+ <div class="a5-page" id="pdfTable">
+    <h1>A5 Page Layout</h1>
+    <p>
+      This content is styled to fit inside an A5-sized page. The dimensions for an A5 page are 148mm by 210mm.
+    </p>
+    <p>
+      You can add more content here, and the layout will respect the A5 dimensions, making it perfect for printing or converting to a PDF in this format.
+    </p>
+  </div> 
+
+
+    <button class="btn btn-primary" (click)="downloadAsPDF()">
+      Preview Report
+    </button> 
+
