@@ -1,10 +1,41 @@
- .header{
-    background-color: white;
+
+.a5-page {
+  width: 210mm;
+  height: 148mm;
+  margin: auto;
+  padding: 10mm;
+  padding-top: 5mm;
+  background-color: white;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+}
+
+@page {
+  size: A5 landscape;
+  margin: 0;
+}
+
+.body1 {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  direction: rtl; /* Right-to-left direction for Arabic */
+  background-color: #f8f9fa; /* Light background for better contrast */
+}
+.header{
+   
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    row-gap: 1rem;
+    padding-bottom: 4mm;
+    
+    row-gap: 0.5rem;
     border-bottom: 1px solid black;
+   
+   
 
    #one{
         text-align: center;
@@ -48,7 +79,8 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding-bottom: 1rem;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
     
     #two{
         text-align: center;
@@ -58,10 +90,10 @@
     .container{
         
         direction: rtl;
-        margin-top: 2rem;
-        row-gap: 1rem;
+        // margin-top: 0.5rem;
+        row-gap: 0.5rem;
         div{
-            margin-top: 1.3rem;
+            margin-top: 1rem;
             span{
                 font-size: 1.3rem;
             }
@@ -80,10 +112,17 @@
         #input{
             border: none;
             border-bottom: 2px dotted black;
-            width: 15rem;
+            width: 9rem;
+        }
+        #input1{
+          border: none;
+          border-bottom: 2px dotted black;
+          width: 32rem;
+
         }
         .signature{
-            margin-right: 48rem;
+            margin-right: 25rem;
+            margin-top: 2rem;
         }
     }
 
@@ -97,5 +136,21 @@
     text-align: center;
   
     justify-content: center;
-    gap:0.5rem
+    gap:0.5rem;
+    span{
+      font-size: 0.7rem;
+    }
+    
+   
 }
+.btn-primary{
+ 
+margin: auto;
+text-align: center;
+  
+}
+
+
+
+
+

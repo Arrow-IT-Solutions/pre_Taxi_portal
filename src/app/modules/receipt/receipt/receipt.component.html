@@ -1,5 +1,6 @@
-<div class="header">
-  <div id="pdfTable" #pdfTable [ngStyle]="{ direction: 'rtl' }">
+
+<div class=" a5-page" id="pdfTable" #pdfTable >
+  <div class="header" [ngStyle]="{ direction: 'rtl' }">
     <span id="one">بسم الله الرحمن الرحيم</span>
     <div class="header-tittle">
       <div class="left">
@@ -40,7 +41,7 @@
           <div>
 
             <label for="">وصلني من السيد /السادة:</label>
-            <label id="input">{{ (data.driver?.driverTranslation)![layoutService.config.lang]?.ownerName
+            <label id="input1">{{ (data.driver?.driverTranslation)![layoutService.config.lang]?.ownerName
               }}</label>
 
           </div>
@@ -87,6 +88,15 @@
     <span>Phone:06-4166893</span>
 
   </div>
-  <button class="btn btn-primary" (click)="downloadAsPDF()">
-    Preview Report
-  </button>
+  </div>
+
+   
+
+
+ 
+
+
+    <button class="btn btn-primary button1" (click)="downloadAsPDF()">
+      Preview Report
+    </button> 
+

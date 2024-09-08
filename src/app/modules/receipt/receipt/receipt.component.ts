@@ -57,14 +57,14 @@ export class ReceiptComponent implements OnInit {
   public downloadAsPDF() {
     var element = document.getElementById("pdfTable");
     const opt = {
-      margin: 10,
+      margin: 10, // Millimeter margin
       filename: 'generated.pdf',
       image: { type: 'jpeg', quality: 1 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      html2canvas: { scale: 1 }, // Ensure content stays at actual size
+      jsPDF: { unit: 'mm', format: 'letter', orientation: 'portrait' } // Letter size paper (215.9mm x 279.4mm)
     };
 
-    html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
+    html2pdf().from(element).toPdf(opt).get('pdf').then(function (pdf) {
       window.open(pdf.output('bloburl'), '_blank');
     });
 
