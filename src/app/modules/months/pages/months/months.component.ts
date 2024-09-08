@@ -1,38 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/layout.service';
-import { AddDriverComponent } from '../add-driver/add-driver.component';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { DriverResponse, DriverSearchRequest, DriverUpdateRequest } from '../../drivers.module';
+import { MonthsResponse, MonthsSearchRequest } from '../../months.module';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PaginatorState } from 'primeng/paginator';
-import { DriverService } from 'src/app/Core/services/driver.service';
+import { MonthService } from 'src/app/Core/services/month.service';
 import { TranslateService } from '@ngx-translate/core';
+
 @Component({
-  selector: 'app-drivers',
-  templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.scss'],
+  selector: 'app-months',
+  templateUrl: './months.component.html',
+  styleUrls: ['./months.component.scss'],
   providers: [MessageService, ConfirmationService]
 
 })
-export class DriversComponent {
+export class MonthsComponent {
   dataForm!: FormGroup;
   loading = false;
-  data: DriverResponse[] = [];
-  driverTotal: number = 0;
+  data: MonthsResponse[] = [];
+  monthTotal: number = 0;
   pageSize: number = 12;
   totalRecords: number = 0;
   doneTypingInterval = 1000;
   typingTimer: any;
   isResetting: boolean = false;
-  constructor(public layoutService: LayoutService, public driverService: DriverService, public messageService: MessageService, public confirmationService: ConfirmationService, public formBuilder: FormBuilder, public translate: TranslateService) {
+  constructor(public layoutService: LayoutService, public monthService: MonthService, public messageService: MessageService, public confirmationService: ConfirmationService, public formBuilder: FormBuilder, public translate: TranslateService) {
     this.dataForm = this.formBuilder.group({
-      ownerName: [''],
-      driverName: [''],
-      phone: [''],
+      year: [''],
       carNumber: [''],
-      carType: ['']
-
-
+      month: [''],
+      fromDate: [''],
+      toDate: ['']
     });
   }
 
@@ -44,7 +42,7 @@ export class DriversComponent {
     this.FillData();
   }
 
-  confirmDelete(row: DriverResponse) {
+  confirmDelete(row: MonthsResponse) {
 
     console.log(row)
     this.confirmationService.confirm({
@@ -54,7 +52,7 @@ export class DriversComponent {
       key: 'positionDialog',
       closeOnEscape: true,
       accept: async () => {
-        const response = (await this.driverService.Delete(row.uuid!)) as any;
+        const response = (await this.monthService.Delete(row.uuid!)) as any;
 
         this.confirmationService.close();
 
@@ -73,26 +71,29 @@ export class DriversComponent {
     this.loading = true;
 
     this.data = [];
-    this.driverService.SelectedData = null;
-    this.driverTotal = 0;
+    this.monthService.SelectedData = null;
+    this.monthTotal = 0;
 
-    let filter: DriverSearchRequest = {
-      ownerName: this.dataForm.controls['ownerName'].value,
-      driverName: this.dataForm.controls['driverName'].value,
-      phone: this.dataForm.controls['phone'].value,
+    const fromDate = this.dataForm.controls['fromDate'].value == '' ? '' : new Date(this.dataForm.controls['fromDate'].value.toISOString())
+    const toDate = this.dataForm.controls['toDate'].value == '' ? '' : new Date(this.dataForm.controls['toDate'].value.toISOString())
+
+    let filter: MonthsSearchRequest = {
       carNumber: this.dataForm.controls['carNumber'].value,
-      carType: this.dataForm.controls['carType'].value,
+      year: this.dataForm.controls['year'].value,
+      month: this.dataForm.controls['month'].value,
+      fromDate: fromDate.toLocaleString(),
+      toDate: toDate.toLocaleString(),
       pageIndex: pageIndex.toString(),
       pageSize: this.pageSize.toString()
     };
-    const response = (await this.driverService.Search(filter)) as any;
-    console.log('Response: ', response)
+    const response = (await this.monthService.Search(filter)) as any;
+
     if (response.data == null || response.data.length == 0) {
       this.data = [];
-      this.driverTotal = 0;
+      this.monthTotal = 0;
     } else if (response.data != null && response.data.length != 0) {
       this.data = response.data;
-      this.driverTotal = response.data[0];
+      this.monthTotal = response.data[0];
     }
 
     this.totalRecords = response.totalRecords;
@@ -100,30 +101,14 @@ export class DriversComponent {
     this.loading = false;
   }
 
-  OpenDialog(row: DriverResponse | null = null) {
-
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // back to the top of the screen
-    document.body.style.overflow = 'hidden'; // lock screen scroll
-
-    this.driverService.SelectedData = row;
-
-    let content = this.driverService.SelectedData == null ? 'CreateDriver_Driver' : 'UpdateDriver_Driver';
-    this.translate.get(content).subscribe((res: string) => {
-      content = res;
-    });
-
-    var component = this.layoutService.OpenDialog(AddDriverComponent, content);
-    this.driverService.Dialog = component;
-
-    component.OnClose.subscribe(() => {
-      document.body.style.overflow = ''; // unlock screen scroll
-      this.FillData();
-    });
-  }
-
   async resetform() {
     this.isResetting = true;
     this.dataForm.reset();
+    let temp = {
+      fromDate: '',
+      toDate: '',
+    };
+    this.dataForm.patchValue(temp);
     await this.FillData();
     this.isResetting = false;
   }
@@ -141,5 +126,4 @@ export class DriversComponent {
   paginate(event: any) {
     this.FillData(event.pageIndex);
   }
-
 }

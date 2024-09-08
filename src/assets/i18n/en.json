@@ -1,6 +1,7 @@
 {
   "CreateRole_Role": "Create Role",
   "UpdateRole_Role": "Update Role",
+  "Field_Requierd" : "Required Field",
 
   "Save_Role": "Save",
   "Search_Role": "Search",
@@ -90,9 +91,32 @@
   "ToMonth_Payment" : "To Month",
   "Payment_Payment" : "Amount",
   "Driver_Payment" : "Driver",
-  "Save_Payment" : "Save"
-
-
+  "select" : "Select",
+  "Error_ToMonth_Less_Than_FromMonth" : "To Month can't be less than From Month",
+  "Save_Payment" : "Save",
+  "Search_Year" : "Year",
+  "Search_Month" : "Month",
+  "Year_Months" : "Year",
+  "Month_Months" : "Month",
+  "Amount_Months" : "Amount",
+  "ReceiptNo_Months" : "Receipt No",
+  "CarNumber_Payment" : "Car Number",
+  "Year_Payment" : "Year",
+  "FromDate_Payment" : "From Date",
+  "ToDate_Payment" : "To Date",
+  "FromDate_Months" : "From Date",
+  "ToDate_Months" : "To Date",
+  "PayDate_Months" : "Pay Date",
+  "CarNo_ExpiredLicence" : "Car No",
+  "DriverName_ExpiredLicence" : "Driver Name",
+  "OwnerName_ExpiredLicence" : "Owner Name",
+  "DrivereNationalID_ExpiredLicence" : "Driver National ID",
+  "OwnerPhone_ExpiredLicence" : "Owner Phone",
+  "DriverPhone_ExpiredLicence" : "Driver Phone",
+  "LicenceExpDate_ExpiredLicence" : "Licence Expiry Date",
+  "CreationDate_ExpiredLicence" : "Creation Date",
+  "CarModel_ExpiredLicence" : "Car Model",
+  "CarType_ExpiredLicence" : "Car Type"
 
 
 

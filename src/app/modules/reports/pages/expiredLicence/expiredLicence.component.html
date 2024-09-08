@@ -1,14 +1,16 @@
 <div [formGroup]="dataForm" class="drivers">
   <div class="row mb-4 m-0 flex-row-reverse p-0">
-    <div class="col-lg-3 col-md-10 col p-0 drivers__search">
+    <div class="col-lg-3 col-md-10 col p-0 ExpiredLicences__search">
       <div class="flex flex-wrap justify-content-center gap-3">
-        <span class="p-input-icon-left p-0">
+        <!-- <span class="p-input-icon-left p-0">
           <i class="pi pi-search"></i>
-          <input class="search-field" type="text" (ngModelChange)="OnChange()" placeholder="{{ 'Search_DriverName' | translate }}" formControlName="driverName" pInputText />
-        </span>
+          <input class="search-field" type="text" (ngModelChange)="OnChange()"
+            placeholder="{{ 'Search_ExpiredLicenceName' | translate }}" formControlName="ExpiredLicenceName"
+            pInputText />
+        </span> -->
       </div>
     </div>
-    <p-accordion class="p-0">
+    <!-- <p-accordion class="p-0">
       <p-accordionTab>
         <ng-template pTemplate="header">
           <div class="flex align-items-center">
@@ -35,7 +37,7 @@
               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                 <div class="p-float-label">
                   <input type="text" pInputText formControlName="phone" (ngModelChange)="OnChange()" class="search-field" type="text" />
-                  <label>{{ 'Search_DriverPhone' | translate }}</label>
+                  <label>{{ 'Search_ExpiredLicencePhone' | translate }}</label>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
@@ -60,7 +62,7 @@
           </div>
         </ng-template>
       </p-accordionTab>
-    </p-accordion>
+    </p-accordion> -->
   </div>
 
   <ng-container *ngIf="!loading; else ListView">
@@ -79,7 +81,7 @@
                 <span class="category">{{ row.carModel }}</span>
               </div>
               <div class="item__ID">
-                <span>{{ 'CarNo_Driver' | translate }}: {{ row.carNumber }}</span>
+                <span>{{ 'CarNo_ExpiredLicence' | translate }}: {{ row.carNumber }}</span>
               </div>
             </div>
           </div>
@@ -89,14 +91,14 @@
               <div class="card-section__title">info</div>
               <div class="card-section__items">
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'DriverName_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'DriverName_ExpiredLicence' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
                     {{ row.driverTranslation![layoutService.config.lang]?.driverName }}
                   </div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'OwnerName_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'OwnerName_ExpiredLicence' | translate }}</div>
                   <div class="card-info">
                     <span class="material-symbols-outlined fill"></span>
                     {{ row.driverTranslation![layoutService.config.lang]?.ownerName }}
@@ -109,15 +111,15 @@
               <div class="card-section__title"></div>
               <div class="card-section__items">
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'DriverNationalID_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'DrivereNationalID_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.driverNationalID }}</div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'OwnerPhone_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'OwnerPhone_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.ownerPhone }}</div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'DriverPhone_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'DriverPhone_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.driverPhone }}</div>
                 </div>
               </div>
@@ -127,50 +129,31 @@
               <div class="card-section__title"></div>
               <div class="card-section__items">
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'LicenceExpDate_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'LicenceExpDate_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.licenceExpDate | date : 'dd-MM-yyyy' }}</div>
                 </div>
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'CreationDate_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'CreationDate_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.creationDate | date : 'dd-MM-yyyy' }}</div>
                 </div>
 
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'CarModel_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'CarModel_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.carModel }}</div>
                 </div>
 
                 <div class="card__contents__item">
-                  <div class="card-label">{{ 'CarType_Driver' | translate }}</div>
+                  <div class="card-label">{{ 'CarType_ExpiredLicence' | translate }}</div>
                   <div class="card-info">{{ row.driverTranslation![layoutService.config.lang]?.carType }}</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="one">
-            <div [matMenuTriggerFor]="menu" class="card__actions">
-              <span class="material-symbols-outlined card__actions__details">more_vert</span>
-            </div>
-
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="OpenDialog(row)">
-                <span class="material-symbols-outlined">Edit</span>
-                {{ 'Edit_Driver' | translate }}
-              </button>
-              <button mat-menu-item (click)="confirmDelete(row)">
-                <span class="material-symbols-outlined">delete</span>
-                {{ 'Delete_Driver' | translate }}
-              </button>
-            </mat-menu>
-          </div>
         </div>
       </div>
     </div>
-    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
-
-    <button class="add-button" (click)="OpenDialog()">
-      <span class="material-symbols-outlined">add</span>
-    </button>
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+      (onPageChange)="paginate($event)"></p-paginator>
   </ng-container>
 
   <ng-template #ListView>
@@ -183,8 +166,10 @@
 
   <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
     <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}" (click)="positionDialog.reject()"></button>
-      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}" (click)="positionDialog.accept()"></button>
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
     </ng-template>
   </p-confirmDialog>
 </div>

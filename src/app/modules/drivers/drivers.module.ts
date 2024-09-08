@@ -14,7 +14,7 @@ import { DriversComponent } from './pages/drivers/drivers.component';
 @NgModule({
   declarations: [
     DriversComponent,
-    AddDriverComponent
+    AddDriverComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +55,7 @@ export interface DriverSearchRequest extends SearchRequestBase {
   phone: string;
   driverName: string;
   carNumber: string;
+  carType: string
   includePayments?: string;
 }
 
