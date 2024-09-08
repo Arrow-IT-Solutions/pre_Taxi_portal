@@ -6,6 +6,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { PaginatorState } from 'primeng/paginator';
 import { PaymentService } from 'src/app/Core/services/payment.service';
 import { TranslateService } from '@ngx-translate/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { DriverService } from 'src/app/Core/services/driver.service';
 import { DriverSearchRequest, DriverResponse } from 'src/app/modules/drivers/drivers.module';
 import { from } from 'rxjs';
@@ -41,7 +42,7 @@ export class PaymentsComponent {
 
 
   isResetting: boolean = false;
-  constructor(public layoutService: LayoutService, public paymentService: PaymentService, public messageService: MessageService, public confirmationService: ConfirmationService, public formBuilder: FormBuilder, public translate: TranslateService, public driverService: DriverService) {
+  constructor(public layoutService: LayoutService, public router: Router, public paymentService: PaymentService, public messageService: MessageService, public confirmationService: ConfirmationService, public formBuilder: FormBuilder, public translate: TranslateService, public driverService: DriverService) {
     this.dataForm = this.formBuilder.group({
       driverSearch: [''],
       fromMonth: ['', Validators.required],
@@ -326,5 +327,10 @@ export class PaymentsComponent {
       toDate: '',
     };
     this.dataForm.patchValue(temp);
+  }
+
+  Print(row: PaymentResponse | null = null) {
+    console.log(row)
+    this.router.navigate(['receipt'], { queryParams: { id: row?.uuid } });
   }
 }

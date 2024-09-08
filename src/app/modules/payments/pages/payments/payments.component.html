@@ -149,84 +149,90 @@
               </p-accordionTab>
             </p-accordion>
           </div>
-<ng-container *ngIf="!loading; else ListView">
-          <div class="container col-12 row mx-0 mt-2">
-            <div *ngFor="let row of data">
-              <div class="card mx-0 mb-2">
-                <div class="card__left">
-                  <div class="card__image">
-                    <img src="../../../../../assets/images/invoice.jpg" />
-                  </div>
-                </div>
-                <div class="card__contents">
-                  <div class="name-ID mx-3">
-                    <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.ownerName }}
-                    </div>
-                    <div class="name mb-1">{{ row.driver?.carNumber }} {{
-                      (row.driver?.driverTranslation)![layoutService.config.lang]?.carType }}</div>
-                    <div class="item__ID">
-                      <span>ID: {{ row.receiptNo }}</span>
+          <ng-container *ngIf="!loading; else ListView">
+            <div class="container col-12 row mx-0 mt-2">
+              <div *ngFor="let row of data">
+                <div class="card mx-0 mb-2">
+                  <div class="card__left">
+                    <div class="card__image">
+                      <img src="../../../../../assets/images/invoice.jpg" />
                     </div>
                   </div>
-                  <div class="container2">
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'Month_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.month }}</div>
+                  <div class="card__contents">
+                    <div class="name-ID mx-3">
+                      <div class="name mb-1">{{ (row.driver?.driverTranslation)![layoutService.config.lang]?.ownerName
+                        }}
+                      </div>
+                      <div class="name mb-1">{{ row.driver?.carNumber }} {{
+                        (row.driver?.driverTranslation)![layoutService.config.lang]?.carType }}</div>
+                      <div class="item__ID">
+                        <span>ID: {{ row.receiptNo }}</span>
+                      </div>
                     </div>
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'Year_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.year }}</div>
-                    </div>
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'ReciptNumber_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.receiptNo }}</div>
-                    </div>
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'Amount_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.amount | number : '1.1-2' }} {{ 'JOD' | translate }}</div>
-                    </div>
-                    <div class="card__contents__item">
-                      <div class="card-label">{{ 'Date_Payment' | translate }}</div>
-                      <div class="card-info">{{ row.date | date : 'dd-MM-yyyy' }}</div>
-                    </div>
-                    <div class="card__contents__item">
-                      <div class="card-label"></div>
-                      <div class="card-info"></div>
+                    <div class="container2">
+                      <div class="card__contents__item">
+                        <div class="card-label">{{ 'Month_Payment' | translate }}</div>
+                        <div class="card-info">{{ row.month }}</div>
+                      </div>
+                      <div class="card__contents__item">
+                        <div class="card-label">{{ 'Year_Payment' | translate }}</div>
+                        <div class="card-info">{{ row.year }}</div>
+                      </div>
+                      <div class="card__contents__item">
+                        <div class="card-label">{{ 'ReciptNumber_Payment' | translate }}</div>
+                        <div class="card-info">{{ row.receiptNo }}</div>
+                      </div>
+                      <div class="card__contents__item">
+                        <div class="card-label">{{ 'Amount_Payment' | translate }}</div>
+                        <div class="card-info">{{ row.amount | number : '1.1-2' }} {{ 'JOD' | translate }}</div>
+                      </div>
+                      <div class="card__contents__item">
+                        <div class="card-label">{{ 'Date_Payment' | translate }}</div>
+                        <div class="card-info">{{ row.date | date : 'dd-MM-yyyy' }}</div>
+                      </div>
+                      <div class="card__contents__item">
+                        <div class="card-label"></div>
+                        <div class="card-info"></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="edit">
-                  <div class="card__actions">
-                    <span [matMenuTriggerFor]="menu"
-                      class="material-symbols-outlined card__actions__details">more_vert</span>
-                    <mat-menu #menu="matMenu">
-                      <button mat-menu-item (click)="OpenDialog(row)">
-                        <span class="material-symbols-outlined">edit</span>
-                        {{ 'Edit_Payment' | translate }}
-                      </button>
-                      <button mat-menu-item>
-                        <span class="material-symbols-outlined">delete</span>
-                        {{ 'Delete_Payment' | translate }}
-                      </button>
-                    </mat-menu>
+                  <div class="edit">
+                    <div class="card__actions">
+                      <span [matMenuTriggerFor]="menu"
+                        class="material-symbols-outlined card__actions__details">more_vert</span>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="Print(row)">
+                          <span class="material-symbols-outlined">print</span>
+                          {{ 'Print_Payment' | translate }}
+                        </button>
+                        <button mat-menu-item (click)="OpenDialog(row)">
+                          <span class="material-symbols-outlined">edit</span>
+                          {{ 'Edit_Payment' | translate }}
+                        </button>
+                        <button mat-menu-item>
+                          <span class="material-symbols-outlined">delete</span>
+                          {{ 'Delete_Payment' | translate }}
+                        </button>
+                      </mat-menu>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
-        
-      </ng-container>
-      <ng-template #ListView>
-        <div class="row">
-          <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
-            <p-skeleton height="7.5rem"></p-skeleton>
-          </div>
+            <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+              (onPageChange)="paginate($event)"></p-paginator>
+
+          </ng-container>
+          <ng-template #ListView>
+            <div class="row">
+              <div *ngFor="let list of [1, 2, 3, 4]" class="row mx-0 mt-2">
+                <p-skeleton height="7.5rem"></p-skeleton>
+              </div>
+            </div>
+          </ng-template>
         </div>
-      </ng-template>
-    </div>
       </div>
-      
+
     </div>
 
     <!-- <div class="col-xs-12 text-end mt-4">
