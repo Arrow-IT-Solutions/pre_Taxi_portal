@@ -15,7 +15,7 @@
     .logo-container{
         width: 10rem;
         img{
-            width: 100%;
+            width: 50%;
         }
 
     }
@@ -49,14 +49,14 @@
     flex-direction: column;
     background-color: white;
     padding-bottom: 1rem;
-    
+
     #two{
         text-align: center;
         font-size: 1.3rem;
         font-weight: 500;
     }
     .container{
-        
+
         direction: rtl;
         margin-top: 2rem;
         row-gap: 1rem;
@@ -69,8 +69,8 @@
         .date{
             display: flex;
             gap:15rem
-           
-            
+
+
         }
         .month{
             display: flex;
@@ -95,7 +95,7 @@
     padding-bottom: 3rem;
     display: flex;
     text-align: center;
-  
+
     justify-content: center;
     gap:0.5rem
 }

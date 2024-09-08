@@ -67,8 +67,5 @@ export class ReceiptComponent implements OnInit {
     html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
       window.open(pdf.output('bloburl'), '_blank');
     });
-
-    console.log('HERE')
   }
 }
-
