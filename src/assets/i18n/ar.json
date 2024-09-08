@@ -106,6 +106,16 @@
   "ToDate_Payment" : "الى تاريخ",
   "FromDate_Months" : "من تاريخ",
   "ToDate_Months" : "الى تاريخ",
-  "PayDate_Months" : "تاريخ الدفعه"
+  "PayDate_Months" : "تاريخ الدفعه",
+  "CarNo_ExpiredLicence" : "رقم السيارة",
+  "DriverName_ExpiredLicence" : "اسم السائق",
+  "OwnerName_ExpiredLicence" : "اسم المالك",
+  "DrivereNationalID_ExpiredLicence" : "رقم السائق الوطني",
+  "OwnerPhone_ExpiredLicence" : "رقم هاتف المالك",
+  "DriverPhone_ExpiredLicence" : "رقم هاتف السائق",
+  "LicenceExpDate_ExpiredLicence" : "تاريخ انتهاء الرخصة",
+  "CreationDate_ExpiredLicence" : "تاريخ الانشاء",
+  "CarModel_ExpiredLicence" : "موديل السيارة",
+  "CarType_ExpiredLicence" : "نوع السيارة"
 
 }

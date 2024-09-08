@@ -14,7 +14,7 @@ import { DriversComponent } from './pages/drivers/drivers.component';
 @NgModule({
   declarations: [
     DriversComponent,
-    AddDriverComponent
+    AddDriverComponent,
   ],
   imports: [
     CommonModule,

@@ -21,7 +21,7 @@ export class AddDriverComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService) {
     this.dataForm = formBuilder.group({
-      ownerNameAr: ['', Validators.required],
+      ownerNameAr: [''],
       ownerNationalID: [''],
       ownerPhone: [''],
       carTypeAr: [''],
@@ -30,7 +30,7 @@ export class AddDriverComponent implements OnInit {
       driverNationalID: [''],
       driverPhone: [''],
       carNumber: ['', Validators.required],
-      licesnceExpDate: [''],
+      licesnceExpDate: ['', Validators.required],
 
 
     });
@@ -78,15 +78,30 @@ export class AddDriverComponent implements OnInit {
     let response;
     let licenceExpDate = new Date(this.dataForm.controls['licesnceExpDate'].value)
 
+
+    console.log(licenceExpDate)
+    console.log(this.dataForm.controls['carNumber'].value)
+    // console.log(this.dataForm.controls['ownerNameAr'].value.toString())
+    console.log(this.dataForm.controls['driverNameAr'].value)
+    console.log(this.dataForm.controls['carTypeAr'].value)
+    console.log(this.dataForm.controls['ownerPhone'].value)
+    console.log(this.dataForm.controls['ownerNationalID'].value)
+    console.log(this.dataForm.controls['driverPhone'].value)
+    console.log(this.dataForm.controls['carModel'].value)
+
+
+
+
+
     var driverTranslation = [
       {
-        ownerName: this.dataForm.controls['ownerNameAr'].value.toString(),
+        ownerName: this.dataForm.controls['ownerNameAr'].value == null ? '' : this.dataForm.controls['ownerNameAr'].value.toString(),
         driverName: this.dataForm.controls['driverNameAr'].value == null ? '' : this.dataForm.controls['driverNameAr'].value,
         carType: this.dataForm.controls['carTypeAr'].value == null ? '' : this.dataForm.controls['carTypeAr'].value,
         language: 'ar'
       },
       {
-        ownerName: this.dataForm.controls['ownerNameAr'].value.toString(),
+        ownerName: this.dataForm.controls['ownerNameAr'].value == null ? '' : this.dataForm.controls['ownerNameAr'].value.toString(),
         driverName: this.dataForm.controls['driverNameAr'].value == null ? '' : this.dataForm.controls['driverNameAr'].value,
         carType: this.dataForm.controls['carTypeAr'].value == null ? '' : this.dataForm.controls['carTypeAr'].value,
         language: 'en'
@@ -102,10 +117,12 @@ export class AddDriverComponent implements OnInit {
         ownerNationalID: this.dataForm.controls['ownerNationalID'].value == null ? '' : this.dataForm.controls['ownerNationalID'].value,
         driverPhone: this.dataForm.controls['driverPhone'].value == null ? '' : this.dataForm.controls['driverPhone'].value,
         driverNationalID: this.dataForm.controls['driverNationalID'].value == null ? '' : this.dataForm.controls['driverNationalID'].value,
-        carModel: this.dataForm.controls['carModel'].value == null ? '' : this.dataForm.controls['carModel'].value,
+        carModel: this.dataForm.controls['carModel'].value == null ? '-1' : this.dataForm.controls['carModel'].value.toString(),
         carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
+
+      console.log(driver)
 
       response = await this.driverService.Update(driver);
     } else {
@@ -116,10 +133,12 @@ export class AddDriverComponent implements OnInit {
         ownerNationalID: this.dataForm.controls['ownerNationalID'].value == null ? '' : this.dataForm.controls['ownerNationalID'].value,
         driverPhone: this.dataForm.controls['driverPhone'].value == null ? '' : this.dataForm.controls['driverPhone'].value,
         driverNationalID: this.dataForm.controls['driverNationalID'].value == null ? '' : this.dataForm.controls['driverNationalID'].value,
-        carModel: this.dataForm.controls['carModel'].value == null ? '' : this.dataForm.controls['carModel'].value,
+        carModel: this.dataForm.controls['carModel'].value == null ? '-1' : this.dataForm.controls['carModel'].value,
         carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
+
+      console.log(driver)
 
       response = await this.driverService.Add(driver);
     }
