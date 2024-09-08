@@ -48,6 +48,18 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path:'receipt',
+    children:[
+      {
+        path:'',
+        loadChildren: () =>
+          import('./modules/receipt/receipt.module').then(
+            (m) => m.ReceiptModule
+          )
+      }
+    ]
+  },
 
   {
     path: 'auth',

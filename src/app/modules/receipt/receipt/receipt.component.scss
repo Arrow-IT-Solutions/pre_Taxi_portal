@@ -1,0 +1,101 @@
+ .header{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    row-gap: 1rem;
+    border-bottom: 1px solid black;
+
+   #one{
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 1rem;
+    }
+    .logo-container{
+        width: 10rem;
+        img{
+            width: 100%;
+        }
+
+    }
+    .header-tittle{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        .left{
+            display: flex;
+            flex-direction: column;
+            span{
+                font-size: 1rem;
+                color: black;
+            }
+        }
+        .right{
+            display: flex;
+            flex-direction: column;
+            span{
+                font-size: 1rem;
+                color: black;
+            }
+        }
+    }
+}
+.content{
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding-bottom: 1rem;
+    
+    #two{
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    .container{
+        
+        direction: rtl;
+        margin-top: 2rem;
+        row-gap: 1rem;
+        div{
+            margin-top: 1.3rem;
+            span{
+                font-size: 1.3rem;
+            }
+        }
+        .date{
+            display: flex;
+            gap:15rem
+           
+            
+        }
+        .month{
+            display: flex;
+            gap:6rem
+
+        }
+        #input{
+            border: none;
+            border-bottom: 2px dotted black;
+            width: 15rem;
+        }
+        .signature{
+            margin-right: 48rem;
+        }
+    }
+
+}
+.footer{
+    direction: rtl;
+    background-color: white;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    display: flex;
+    text-align: center;
+  
+    justify-content: center;
+    gap:0.5rem
+}
