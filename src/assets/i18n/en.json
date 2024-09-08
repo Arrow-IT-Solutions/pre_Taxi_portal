@@ -106,7 +106,17 @@
   "ToDate_Payment" : "To Date",
   "FromDate_Months" : "From Date",
   "ToDate_Months" : "To Date",
-  "PayDate_Months" : "Pay Date"
+  "PayDate_Months" : "Pay Date",
+  "CarNo_ExpiredLicence" : "Car No",
+  "DriverName_ExpiredLicence" : "Driver Name",
+  "OwnerName_ExpiredLicence" : "Owner Name",
+  "DrivereNationalID_ExpiredLicence" : "Driver National ID",
+  "OwnerPhone_ExpiredLicence" : "Owner Phone",
+  "DriverPhone_ExpiredLicence" : "Driver Phone",
+  "LicenceExpDate_ExpiredLicence" : "Licence Expiry Date",
+  "CreationDate_ExpiredLicence" : "Creation Date",
+  "CarModel_ExpiredLicence" : "Car Model",
+  "CarType_ExpiredLicence" : "Car Type"
 
 
 

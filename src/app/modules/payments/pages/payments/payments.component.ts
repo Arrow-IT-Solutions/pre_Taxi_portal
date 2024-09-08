@@ -150,9 +150,6 @@ export class PaymentsComponent {
     const fromDate = this.dataForm.controls['fromDate'].value == '' ? '' : new Date(this.dataForm.controls['fromDate'].value.toISOString())
     const toDate = this.dataForm.controls['toDate'].value == '' ? '' : new Date(this.dataForm.controls['toDate'].value.toISOString())
 
-
-    console.log(fromDate)
-
     let filter: PaymentSearchRequest = {
       driverIDFK: this.dataForm.controls['driverSearch'].value == null ? '' : this.dataForm.controls['driverSearch'].value.toString(),
       fromDate: fromDate.toLocaleString(),
@@ -271,6 +268,7 @@ export class PaymentsComponent {
         return;
       }
       await this.Save();
+      this.FillData()
     } catch (exceptionVar) {
     } finally {
       this.btnLoading = false;
@@ -311,10 +309,7 @@ export class PaymentsComponent {
 
     if (response?.requestStatus?.toString() == '200') {
       this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
-      if (this.driverService.SelectedData == null) {
-        this.resetForm();
-        this.FillData();
-      }
+      this.resetForm();
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
     }
@@ -323,6 +318,13 @@ export class PaymentsComponent {
     this.submitted = false;
   }
   resetForm() {
+
     this.dataForm.reset();
+    this.dataForm.reset();
+    let temp = {
+      fromDate: '',
+      toDate: '',
+    };
+    this.dataForm.patchValue(temp);
   }
 }

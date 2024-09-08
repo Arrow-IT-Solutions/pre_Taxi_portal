@@ -35,6 +35,13 @@ export const navbarData: NavbarData[] = [
     icon: 'receipt_long',
     routeLink: "months"
   },
+  {
+    label: 'Expired Licence Report',
+    labelar: 'تقرير الرخص المنتهية',
+    id: 'ExpiredLicence',
+    icon: 'receipt_long',
+    routeLink: "expiredLicenceReport"
+  },
 
 
 ];
