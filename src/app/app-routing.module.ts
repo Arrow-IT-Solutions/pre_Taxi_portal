@@ -73,6 +73,43 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'licensing',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/licensing/licensing.module').then(
+            (m) => m.LicensingModule
+          )
+      }
+    ]
+  },
+  {
+    path: 'ownerShip',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/change-owner-ship/change-owner-ship.module').then(
+            (m) => m.ChangeOwnerShipModule
+          )
+      }
+    ]
+  },
+  {
+    path: 'cancle',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/vehicle-cancellation/vehicle-cancellation.module').then(
+            (m) => m.VehicleCancellationModule
+          )
+      }
+    ]
+  },
+
 
   {
     path: 'auth',

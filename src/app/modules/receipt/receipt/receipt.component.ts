@@ -18,7 +18,8 @@ export class ReceiptComponent implements OnInit {
 
   data: PaymentResponse
 
-  constructor(public layoutService: LayoutService, private route: ActivatedRoute, public paymentService: PaymentService) {
+  constructor(public layoutService: LayoutService,
+     private route: ActivatedRoute, public paymentService: PaymentService) {
 
 
 
