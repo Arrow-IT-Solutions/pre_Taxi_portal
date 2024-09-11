@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 
 import Axios from 'axios';
 import { UserResponse } from 'src/app/modules/auth/auth.module';
-import { DriverRequest, DriverResponse, DriverSearchRequest, DriverUpdateRequest } from 'src/app/modules/drivers/drivers.module';
+import { DriverRequest, DriverResponse, DriverSearchRequest, DriverUpdateRequest, ReportRequest } from 'src/app/modules/drivers/drivers.module';
 import { environment } from 'src/environments/environment';
 import { HttpClientService } from './http-client.service';
 
@@ -17,6 +17,12 @@ export class DriverService {
   constructor(public layoutService: LayoutService, public httpClient: HttpClientService) { }
   async Add(data: DriverRequest) {
     const apiUrl = `/api/driver`;
+
+    return await this.httpClient.post(apiUrl, data);
+  }
+
+  async ValidatePayments(data: ReportRequest) {
+    const apiUrl = `/api/driver/validate`;
 
     return await this.httpClient.post(apiUrl, data);
   }

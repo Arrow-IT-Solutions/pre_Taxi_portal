@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { PaginatorState } from 'primeng/paginator';
 import { DriverService } from 'src/app/Core/services/driver.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ClearanceComponent } from '../clearance/clearance.component';
+import { OwnershipComponent } from '../ownership/ownership.component';
+import { RemoveComponent } from '../remove/remove.component';
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
@@ -113,6 +116,69 @@ export class DriversComponent {
     });
 
     var component = this.layoutService.OpenDialog(AddDriverComponent, content);
+    this.driverService.Dialog = component;
+
+    component.OnClose.subscribe(() => {
+      document.body.style.overflow = ''; // unlock screen scroll
+      this.FillData();
+    });
+  }
+
+  OpenClearance(row: DriverResponse | null = null) {
+
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // back to the top of the screen
+    document.body.style.overflow = 'hidden'; // lock screen scroll
+
+    this.driverService.SelectedData = row;
+
+    let content = 'Clearance_Driver';
+    this.translate.get(content).subscribe((res: string) => {
+      content = res;
+    });
+
+    var component = this.layoutService.OpenDialog(ClearanceComponent, content);
+    this.driverService.Dialog = component;
+
+    component.OnClose.subscribe(() => {
+      document.body.style.overflow = ''; // unlock screen scroll
+      this.FillData();
+    });
+  }
+
+  OpenOwnership(row: DriverResponse | null = null) {
+
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // back to the top of the screen
+    document.body.style.overflow = 'hidden'; // lock screen scroll
+
+    this.driverService.SelectedData = row;
+
+    let content = 'Ownership_Driver';
+    this.translate.get(content).subscribe((res: string) => {
+      content = res;
+    });
+
+    var component = this.layoutService.OpenDialog(OwnershipComponent, content);
+    this.driverService.Dialog = component;
+
+    component.OnClose.subscribe(() => {
+      document.body.style.overflow = ''; // unlock screen scroll
+      this.FillData();
+    });
+  }
+
+  OpenRemove(row: DriverResponse | null = null) {
+
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // back to the top of the screen
+    document.body.style.overflow = 'hidden'; // lock screen scroll
+
+    this.driverService.SelectedData = row;
+
+    let content = 'Remove_Driver';
+    this.translate.get(content).subscribe((res: string) => {
+      content = res;
+    });
+
+    var component = this.layoutService.OpenDialog(RemoveComponent, content);
     this.driverService.Dialog = component;
 
     component.OnClose.subscribe(() => {

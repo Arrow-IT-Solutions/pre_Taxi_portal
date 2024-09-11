@@ -1,0 +1,45 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="add-driver">
+  <div class="add-driver">
+    <div class="box-shadow mb-3">
+      <div class="row">
+        <div class="col-12 side-icon">
+          <span class="material-symbols-outlined">info</span>
+          <span>{{ 'Basic_Info_Clearance' | translate }}</span>
+        </div>
+        <div class="col-12 row m-0 p-0">
+          <div class="col-12 mb-3">
+            <div class="col-12 mb-3">
+              <div class="p-float-label">
+                <input pInputText type="text" formControlName="carNumber" />
+                <label>{{ 'CarNumber_Clearance' | translate }}</label>
+              </div>
+            </div>
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carTypeAr" />
+              <label>{{ 'CarTypeAr_Clearance' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <input pInputText type="text" formControlName="carModel" />
+              <label>{{ 'CarModel_Clearance' | translate }}</label>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="p-float-label">
+              <p-calendar [showIcon]="true" formControlName="date"></p-calendar>
+              <label>{{ 'Date_Clearance' | translate }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 text-end mt-4">
+      <p-button type="Submit" class="btn-primary" label="Save" [loading]="btnLoading"></p-button>
+    </div>
+  </div>
+</form>
+
+
+<p-toast key="toast"></p-toast>

@@ -117,6 +117,27 @@
   "CreationDate_ExpiredLicence" : "تاريخ الانشاء",
   "CarModel_ExpiredLicence" : "موديل السيارة",
   "CarType_ExpiredLicence" : "نوع السيارة",
-  "Print_Payment" : "طباعة"
+  "Print_Payment" : "طباعة",
+  "Clearance_Driver" : "براءة ذمة / للترخيص فقط",
+  "Basic_Info_Clearance" : "براءة ذمة / للترخيص فقط",
+  "CarNumber_Clearance" : "رقم السيارة",
+  "CarTypeAr_Clearance" : "نوع السيارة",
+  "CarModel_Clearance" : "موديل السيارة",
+  "Date_Clearance" : "التاريخ",
+  "Basic_Info_Ownership" : "نقل ملكية",
+  "Ownership_Driver" : "نقل ملكية",
+  "OwnerShipTransfer_Driver" : "نقل ملكية",
+  "Basic_Info_Remove" : "شطب مركبة",
+  "CarNumber_Remove" : "رقم السيارة",
+  "CarTypeAr_Remove" : "نوع السيارة",
+  "OwnerName_Remove" : "اسم المالك",
+  "Date_Remove" : "التاريخ",
+  "Remove_Driver" : "شطب مركبة",
+  "RemoveCar_Driver" : "شطب مركبة",
+  "CarNumber_Ownership" : "رقم السيارة",
+  "CarTypeAr_Ownership" : "نوع السيارة",
+  "FromOwnerName_Ownership" : "من اسم السيد",
+  "ToOwnerName_Ownership" : "الى اسم السيد",
+  "Date_Ownership" : "التاريخ"
 
 }
