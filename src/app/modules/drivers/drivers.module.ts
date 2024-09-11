@@ -7,6 +7,7 @@ import { NgPrimeModule } from 'src/app/shared/ngprime.module';
 import { AddDriverComponent } from './pages/add-driver/add-driver.component';
 import { driversRoutingModule } from './drivers.routing';
 import { DriversComponent } from './pages/drivers/drivers.component';
+import { RemoveComponent } from './pages/remove/remove.component';
 
 
 
@@ -15,6 +16,10 @@ import { DriversComponent } from './pages/drivers/drivers.component';
   declarations: [
     DriversComponent,
     AddDriverComponent,
+    ClearanceComponent,
+    OwnershipComponent,
+    RemoveComponent
+
   ],
   imports: [
     CommonModule,
@@ -24,6 +29,8 @@ import { DriversComponent } from './pages/drivers/drivers.component';
   ]
 })
 export class DriversModule { }
+import { ClearanceComponent } from './pages/clearance/clearance.component';
+import { OwnershipComponent } from './pages/ownership/ownership.component';
 export interface DriverRequest extends RequestBase {
   //uuid?: string;
   driverTranslation?: DriverTranslationRequest[];
@@ -36,6 +43,7 @@ export interface DriverRequest extends RequestBase {
   licenceExpDate?: string
 
 }
+
 
 export interface DriverUpdateRequest extends RequestBase {
   //uuid?: string;
@@ -93,4 +101,10 @@ export interface DriverTranslationResponse {
   driverName?: string;
   carType?: string;
   language?: string;
+}
+
+export interface ReportRequest extends RequestBase {
+  carNumber?: string,
+  date?: string
+
 }

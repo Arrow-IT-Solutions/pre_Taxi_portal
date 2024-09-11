@@ -4,7 +4,8 @@
       <div class="flex flex-wrap justify-content-center gap-3">
         <span class="p-input-icon-left p-0">
           <i class="pi pi-search"></i>
-          <input class="search-field" type="text" (ngModelChange)="OnChange()" placeholder="{{ 'Search_DriverName' | translate }}" formControlName="driverName" pInputText />
+          <input class="search-field" type="text" (ngModelChange)="OnChange()"
+            placeholder="{{ 'Search_DriverName' | translate }}" formControlName="driverName" pInputText />
         </span>
       </div>
     </div>
@@ -26,7 +27,8 @@
                 <div class="p-float-label">
                   <span class="p-input-icon-left p-0">
                     <div class="p-float-label">
-                      <input type="text" pInputText formControlName="ownerName" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                      <input type="text" pInputText formControlName="ownerName" (ngModelChange)="OnChange()"
+                        class="search-field" type="text" />
                       <label>{{ 'Search_OwnerName' | translate }}</label>
                     </div>
                   </span>
@@ -34,19 +36,22 @@
               </div>
               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                 <div class="p-float-label">
-                  <input type="text" pInputText formControlName="phone" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <input type="text" pInputText formControlName="phone" (ngModelChange)="OnChange()"
+                    class="search-field" type="text" />
                   <label>{{ 'Search_DriverPhone' | translate }}</label>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                 <div class="p-float-label">
-                  <input type="text" pInputText formControlName="carNumber" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <input type="text" pInputText formControlName="carNumber" (ngModelChange)="OnChange()"
+                    class="search-field" type="text" />
                   <label>{{ 'Search_CarNumber' | translate }}</label>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-3">
                 <div class="p-float-label">
-                  <input type="text" pInputText formControlName="carType" (ngModelChange)="OnChange()" class="search-field" type="text" />
+                  <input type="text" pInputText formControlName="carType" (ngModelChange)="OnChange()"
+                    class="search-field" type="text" />
                   <label>{{ 'Search_CarType' | translate }}</label>
                 </div>
               </div>
@@ -153,6 +158,19 @@
             </div>
 
             <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="OpenClearance(row)">
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'Clearance_Driver' | translate }}
+              </button>
+              <button mat-menu-item (click)="OpenOwnership(row)">
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'OwnerShipTransfer_Driver' | translate }}
+              </button>
+              <button mat-menu-item (click)="OpenRemove(row)">
+                <span class="material-symbols-outlined">Edit</span>
+                {{ 'RemoveCar_Driver' | translate }}
+              </button>
+
               <button mat-menu-item (click)="OpenDialog(row)">
                 <span class="material-symbols-outlined">Edit</span>
                 {{ 'Edit_Driver' | translate }}
@@ -166,7 +184,8 @@
         </div>
       </div>
     </div>
-    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" (onPageChange)="paginate($event)"></p-paginator>
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+      (onPageChange)="paginate($event)"></p-paginator>
 
     <button class="add-button" (click)="OpenDialog()">
       <span class="material-symbols-outlined">add</span>
@@ -183,8 +202,10 @@
 
   <p-confirmDialog #positionDialog key="positionDialog" position="bottom" [baseZIndex]="10000" onHide="true">
     <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}" (click)="positionDialog.reject()"></button>
-      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}" (click)="positionDialog.accept()"></button>
+      <button type="button" pButton icon="pi pi-times" label="{{ 'No' | translate }}"
+        (click)="positionDialog.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="{{ 'Yes' | translate }}"
+        (click)="positionDialog.accept()"></button>
     </ng-template>
   </p-confirmDialog>
 </div>
