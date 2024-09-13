@@ -4,6 +4,9 @@ import { MessageService } from 'primeng/api';
 import { DriverService } from 'src/app/Core/services/driver.service';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { DriverRequest, DriverUpdateRequest, ReportRequest } from '../../drivers.module';
+import { NavigationExtras, Router } from '@angular/router';
+import { ReportService } from 'src/app/Core/services/report.service';
+import { PrintReportRequest } from 'src/app/modules/licensing/licensing-routing.module';
 
 @Component({
   selector: 'app-ownership',
@@ -19,7 +22,7 @@ export class OwnershipComponent implements OnInit {
   btnLoading: boolean = false;
   loading: boolean = false;
 
-  constructor(public formBuilder: FormBuilder, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService) {
+  constructor(public formBuilder: FormBuilder, public router: Router, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService, public reportService: ReportService) {
     this.dataForm = formBuilder.group({
       carTypeAr: ['', Validators.required],
       fromOwnerName: ['', Validators.required],
@@ -71,6 +74,7 @@ export class OwnershipComponent implements OnInit {
   async Save() {
 
     let response;
+    let reportResponse;
     let date = new Date(this.dataForm.controls['date'].value)
 
     var ownership: ReportRequest = {
@@ -78,11 +82,37 @@ export class OwnershipComponent implements OnInit {
       date: date.toISOString(),
     };
 
+    let carType = this.dataForm.controls['carTypeAr'].value
+    let fromOwnerName = this.dataForm.controls['fromOwnerName'].value
+    let toOwnerName = this.dataForm.controls['toOwnerName'].value
+
     response = await this.driverService.ValidatePayments(ownership);
 
+    var report: PrintReportRequest = {
+      fromOwnerName: fromOwnerName,
+      toOwnerName: toOwnerName,
+      carNumber: ownership.carNumber,
+      date: date.toISOString(),
+      carType: carType,
+      reportType: "2"
+    };
+
+    reportResponse = await this.reportService.Add(report)
+
+    let reportNo = reportResponse.reportNo
 
     if (response?.requestStatus?.toString() == '200') {
       this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
+      this.router.navigate(['ownerShip'], {
+        queryParams: {
+          carNumber: ownership?.carNumber,
+          carType: carType,
+          date: ownership.date,
+          fromOwnerName: fromOwnerName,
+          toOwnerName: toOwnerName,
+          reportNo: reportNo,
+        }
+      });
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
     }

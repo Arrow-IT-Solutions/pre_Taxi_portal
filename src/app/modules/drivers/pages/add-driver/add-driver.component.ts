@@ -108,8 +108,6 @@ export class AddDriverComponent implements OnInit {
         licenceExpDate: licenceExpDate.toISOString(),
       };
 
-      console.log(driver)
-
       response = await this.driverService.Update(driver);
     } else {
       // add

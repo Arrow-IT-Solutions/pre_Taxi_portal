@@ -1,58 +1,58 @@
-<div class=" a4-page" id="pdfTable" #pdfTable >
-    <div class="header" [ngStyle]="{ direction: 'rtl' }">
-        <span id="one">بسم الله الرحمن الرحيم</span>
-        <span id="two">بسم الله توكلت على الله</span>
-        <span id="three">مكتب تكسي التوبة للاندماج</span>
-    </div>
-<div class="content">
+<div class=" a4-page" id="pdfTable" #pdfTable>
+  <div class="header" [ngStyle]="{ direction: 'rtl' }">
+    <span id="one">بسم الله الرحمن الرحيم</span>
+    <span id="two">بسم الله توكلت على الله</span>
+    <span id="three">مكتب تكسي التوبة للاندماج</span>
+  </div>
+  <div class="content">
     <div class="tittle">
-        <span>عطوفة مدير دائرة ترخيص السواقين والمركبات الأكرم</span>
-        <span>الموضوع:شطب مركبة</span>
+      <span>عطوفة مدير دائرة ترخيص السواقين والمركبات الأكرم</span>
+      <span>الموضوع:شطب مركبة</span>
     </div>
     <div class="container">
-        <span>لا مانع لدى مكتب تكسي التوبة من شطب المركبة</span>
-        <div class="type">
-      
-            <div>
-              <label for="">التي تحمل رقم:</label>
-              <label id="input"></label>
-            </div>
-            <div>
-              <label for="">نوع:</label>
-              <label id="input"></label>
-            </div>
+      <span>لا مانع لدى مكتب تكسي التوبة من شطب المركبة</span>
+      <div class="type">
 
-        </div>
-        <div class="ownerName">
-            <label for="">والعائدة ملكيتها إلى السيد/</label>
-            <label id="input"></label>
+        <div>
+          <label for="">التي تحمل رقم:</label>
+          <label id="input">{{carNumber}}</label>
         </div>
         <div>
-            <span>
-                علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
-            </span>
-           
-            <div class="date2">
-              <label for="">تاريخ:</label>
-                <label id="input"></label>
-            </div>
-          
+          <label for="">نوع:</label>
+          <label id="input">{{carType}}</label>
+        </div>
 
-        </div>
-        <div class="respect">
-            <label >وتفضلوا بقبول فائق الاحترام</label>
-        </div>
-        <div class="owner">
-             <label for="">  صاحب مكتب تكسي التوبة للاندماج</label>
-         
-         
+      </div>
+      <div class="ownerName">
+        <label for="">والعائدة ملكيتها إلى السيد/</label>
+        <label id="input">{{ownerName}}</label>
+      </div>
+      <div>
+        <span>
+          علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
+        </span>
 
+        <div class="date2">
+          <label for="">تاريخ:</label>
+          <label id="input">{{date | date : 'dd-MM-yyyy'}}</label>
         </div>
+
+
+      </div>
+      <div class="respect">
+        <label>وتفضلوا بقبول فائق الاحترام</label>
+      </div>
+      <div class="owner">
+        <label for=""> صاحب مكتب تكسي التوبة للاندماج</label>
+
+
+
+      </div>
 
 
     </div>
-</div>
+  </div>
 </div>
 <button class="btn btn-primary button1" (click)="downloadAsPDF()">
-    Preview Report
-  </button> 
+  Preview Report
+</button>
