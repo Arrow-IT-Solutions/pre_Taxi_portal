@@ -7,6 +7,7 @@ import { UserResponse } from 'src/app/modules/auth/auth.module';
 import { DriverRequest, DriverResponse, DriverSearchRequest, DriverUpdateRequest } from 'src/app/modules/drivers/drivers.module';
 import { environment } from 'src/environments/environment';
 import { HttpClientService } from './http-client.service';
+import { PrintReportRequest } from 'src/app/modules/licensing/licensing-routing.module';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,11 @@ export class ReportService {
 
     return await this.httpClient.get(apiUrl)
 
+  }
+
+  async Add(data: PrintReportRequest) {
+    const apiUrl = `/api/report`;
+
+    return await this.httpClient.post(apiUrl, data);
   }
 }

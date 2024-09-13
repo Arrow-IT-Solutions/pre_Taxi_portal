@@ -11,14 +11,14 @@
     border: 1px solid #dee2e6;
     border-radius: 0.25rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
+
   }
-  
+
   @page {
     size: A4 landscape;
     margin: 0;
   }
-  
+
   .body1 {
     margin: 0;
     padding: 0;
@@ -27,15 +27,15 @@
     background-color: #f8f9fa; /* Light background for better contrast */
   }
   .header{
-   
+
     display: flex;
     flex-direction: column;
     padding-bottom: 4mm;
-    
+
     row-gap: 0.5rem;
-    
-   
-   
+
+
+
 
    #one{
         text-align: center;
@@ -90,27 +90,27 @@
         font-weight: bold;
     }
     .container{
-        
+
         direction: rtl;
         // margin-top: 0.5rem;
-        
+
         row-gap: 0.5rem;
-       
+
         div{
             margin-top: 1rem;
             span{
                 font-size: 1rem;
                display: flex;
                padding-right: 7rem;
-               
+
             }
         }
         .date{
             display: flex;
             gap:20rem;
             padding-right: 7rem;
-           
-            
+
+
         }
         .date2{
             display: flex;
@@ -131,7 +131,7 @@
         #input{
             border: none;
             border-bottom: 2px dotted black;
-            width: 9rem;
+            width: 10rem;
         }
         #input1{
           border: none;
@@ -139,7 +139,7 @@
           width: 32rem;
 
         }
-      
+
         .owner{
             margin-right: 25rem;
             margin-top: 2rem;
@@ -149,20 +149,20 @@
 }
 .footer{
     direction: rtl;
-    
-    
+
+
     display: flex;
     justify-content: center;
     text-align: center;
-    
+
    margin-top: 4rem;
-   
-    
-   
-    
-   
+
+
+
+
+
 }
 button{
     margin-top: 0.5rem;
-   
+
 }

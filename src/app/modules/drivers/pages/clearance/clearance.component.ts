@@ -4,6 +4,9 @@ import { MessageService } from 'primeng/api';
 import { DriverService } from 'src/app/Core/services/driver.service';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { DriverRequest, DriverUpdateRequest, ReportRequest } from '../../drivers.module';
+import { NavigationExtras, Router } from '@angular/router';
+import { ReportService } from 'src/app/Core/services/report.service';
+import { PrintReportRequest } from 'src/app/modules/licensing/licensing-routing.module';
 
 @Component({
   selector: 'app-clearance',
@@ -19,7 +22,7 @@ export class ClearanceComponent implements OnInit {
   btnLoading: boolean = false;
   loading: boolean = false;
 
-  constructor(public formBuilder: FormBuilder, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService) {
+  constructor(public formBuilder: FormBuilder, public router: Router, public layoutService: LayoutService, public messageService: MessageService, public driverService: DriverService, public reportService: ReportService) {
     this.dataForm = formBuilder.group({
       carTypeAr: ['', Validators.required],
       carModel: ['', Validators.required],
@@ -70,18 +73,52 @@ export class ClearanceComponent implements OnInit {
   async Save() {
 
     let response;
+    let reportResponse;
     let date = new Date(this.dataForm.controls['date'].value)
+
+
 
     var clearance: ReportRequest = {
       carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
       date: date.toISOString(),
     };
 
+
+
+    let carType = this.dataForm.controls['carTypeAr'].value
+    let carModel = this.dataForm.controls['carModel'].value
+
     response = await this.driverService.ValidatePayments(clearance);
+
+
+    var report: PrintReportRequest = {
+      carModel: carModel,
+      carNumber: clearance.carNumber,
+      date: date.toISOString(),
+      carType: carType,
+      reportType: "1"
+    };
+
+    reportResponse = await this.reportService.Add(report)
+
+    let reportNo = reportResponse.reportNo
 
 
     if (response?.requestStatus?.toString() == '200') {
       this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
+
+      this.router.navigate(['licensing'], {
+        queryParams: {
+          carNumber: clearance?.carNumber,
+          carType: carType,
+          date: clearance.date,
+          carModel: carModel,
+          reportNo: reportNo,
+        }
+      });
+
+
+
     } else {
       this.layoutService.showError(this.messageService, 'toast', true, response?.requestMessage);
     }
