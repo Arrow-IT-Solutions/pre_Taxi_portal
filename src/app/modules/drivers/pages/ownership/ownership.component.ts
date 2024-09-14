@@ -103,6 +103,35 @@ export class OwnershipComponent implements OnInit {
 
     if (response?.requestStatus?.toString() == '200') {
       this.layoutService.showSuccess(this.messageService, 'toast', true, response?.requestMessage);
+      var driverTranslation = [
+        {
+          ownerName: toOwnerName,
+          driverName: this.driverService.SelectedData?.driverTranslation!['ar'].driverName,
+          carType: carType,
+          language: 'ar'
+        },
+        {
+          ownerName: toOwnerName,
+          driverName: this.driverService.SelectedData?.driverTranslation!['ar'].driverName,
+          carType: carType,
+          language: 'en'
+        }
+      ];
+
+      var driver: DriverUpdateRequest = {
+        uuid: this.driverService.SelectedData?.uuid?.toString(),
+        driverTranslation: driverTranslation,
+        ownerPhone: '',
+        ownerNationalID: '',
+        driverPhone: this.driverService.SelectedData?.driverPhone,
+        driverNationalID: this.driverService.SelectedData?.driverNationalID,
+        carModel: this.driverService.SelectedData?.carModel.toString(),
+        carNumber: this.driverService.SelectedData?.carNumber,
+        licenceExpDate: this.driverService.SelectedData?.licenceExpDate,
+      };
+
+      response = await this.driverService.Update(driver);
+
       this.router.navigate(['ownerShip'], {
         queryParams: {
           carNumber: ownership?.carNumber,

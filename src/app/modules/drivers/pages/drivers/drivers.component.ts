@@ -23,6 +23,7 @@ export class DriversComponent {
   data: DriverResponse[] = [];
   driverTotal: number = 0;
   pageSize: number = 12;
+  first: number = 0;
   totalRecords: number = 0;
   doneTypingInterval = 1000;
   typingTimer: any;
@@ -205,7 +206,9 @@ export class DriversComponent {
   }
 
   paginate(event: any) {
-    this.FillData(event.pageIndex);
+    this.pageSize = event.rows
+    this.first = event.first
+    this.FillData(event.first);
   }
 
 }

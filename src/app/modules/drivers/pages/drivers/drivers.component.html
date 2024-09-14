@@ -184,7 +184,7 @@
         </div>
       </div>
     </div>
-    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
+    <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]" [first]="first"
       (onPageChange)="paginate($event)"></p-paginator>
 
     <button class="add-button" (click)="OpenDialog()">
