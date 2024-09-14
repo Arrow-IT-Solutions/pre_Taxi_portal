@@ -229,7 +229,8 @@ export class PaymentsComponent {
   }
 
   paginate(event: any) {
-    this.FillData(event.pageIndex);
+    this.pageSize = event.rows
+    this.FillData(event.first);
   }
 
   async FillClient(event: any = null) {
