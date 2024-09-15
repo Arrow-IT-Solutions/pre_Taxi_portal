@@ -117,8 +117,27 @@
   "CreationDate_ExpiredLicence" : "Creation Date",
   "CarModel_ExpiredLicence" : "Car Model",
   "CarType_ExpiredLicence" : "Car Type",
-  "Print_Payment" : "Print"
-
-
+  "Print_Payment" : "Print",
+  "Clearance_Driver" : "Clearance",
+  "Basic_Info_Clearance" : "Clearance",
+  "CarNumber_Clearance" : "Car Number",
+  "CarTypeAr_Clearance" : "Car Type",
+  "CarModel_Clearance" : "Car Model",
+  "Date_Clearance" : "Date",
+  "Basic_Info_Ownership" : "Transfer of ownership",
+  "Ownership_Driver" : "Transfer of ownership",
+  "OwnerShipTransfer_Driver" : "Transfer of ownership",
+  "Basic_Info_Remove" : "Remove Car",
+  "CarNumber_Remove" : "Car Number",
+  "CarTypeAr_Remove" : "Car Type",
+  "OwnerName_Remove" : "Owner Name",
+  "Date_Remove" : "Date",
+  "Remove_Driver" : "Remove Car",
+  "RemoveCar_Driver" : "Remove Car",
+  "CarNumber_Ownership" : "Car Number",
+  "CarTypeAr_Ownership" : "Car Type",
+  "FromOwnerName_Ownership" : "From Owner",
+  "ToOwnerName_Ownership" : "To Owner",
+  "Date_Ownership" : "Date"
 
 }

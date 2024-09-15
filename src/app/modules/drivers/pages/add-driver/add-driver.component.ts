@@ -79,20 +79,6 @@ export class AddDriverComponent implements OnInit {
     let licenceExpDate = new Date(this.dataForm.controls['licesnceExpDate'].value)
 
 
-    console.log(licenceExpDate)
-    console.log(this.dataForm.controls['carNumber'].value)
-    // console.log(this.dataForm.controls['ownerNameAr'].value.toString())
-    console.log(this.dataForm.controls['driverNameAr'].value)
-    console.log(this.dataForm.controls['carTypeAr'].value)
-    console.log(this.dataForm.controls['ownerPhone'].value)
-    console.log(this.dataForm.controls['ownerNationalID'].value)
-    console.log(this.dataForm.controls['driverPhone'].value)
-    console.log(this.dataForm.controls['carModel'].value)
-
-
-
-
-
     var driverTranslation = [
       {
         ownerName: this.dataForm.controls['ownerNameAr'].value == null ? '' : this.dataForm.controls['ownerNameAr'].value.toString(),
@@ -121,8 +107,6 @@ export class AddDriverComponent implements OnInit {
         carNumber: this.dataForm.controls['carNumber'].value == null ? '' : this.dataForm.controls['carNumber'].value,
         licenceExpDate: licenceExpDate.toISOString(),
       };
-
-      console.log(driver)
 
       response = await this.driverService.Update(driver);
     } else {

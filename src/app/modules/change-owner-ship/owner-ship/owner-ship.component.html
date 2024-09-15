@@ -1,0 +1,118 @@
+<div class=" a4-page" id="pdfTable" #pdfTable>
+  <div class="header" [ngStyle]="{ direction: 'rtl' }">
+    <span id="one">بسم الله الرحمن الرحيم</span>
+    <div class="header-tittle">
+      <div class="left">
+        <span>شركة التوبة للنقل</span>
+        <span>فرع أبو علندا</span>
+        <span>عمان-الأردن</span>
+      </div>
+      <div class="logo-container">
+        <img src="../../../../assets/images/Altawba-logo.jpg" alt="">
+      </div>
+      <div class="right">
+
+        <span>Altawba For Transportation</span>
+        <span>Abu Alanda Branch</span>
+        <span>Amman-Jordan</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="content">
+    <div class="tittle">
+      <span>عطوفة مدير دائرة عمليات النقل العام الأكرم</span>
+      <span>أمانة عمان الكبرى</span>
+      <span>الموضوع - براءة ذمة/ نقل ملكية</span>
+    </div>
+    <div class="container">
+      <form action="">
+        <div class="date">
+          <div>
+
+            <label for=""> التاريخ:</label>
+            <label id="input">{{date | date : 'dd-MM-yyyy'}}</label>
+
+          </div>
+          <div>
+
+            <label for="">رقم الوصل:</label>
+            <label id="input">{{reportNo}}</label>
+
+          </div>
+        </div>
+        <div class="details">
+
+
+          <span>لا مانع لدى مكتب تكسي التوبة للاندماج من نقل ملكية السارة العمومي</span>
+
+
+
+          <div class="type">
+
+            <div>
+              <label for="">التي تحمل رقم:</label>
+              <label id="input">{{carNumber}}</label>
+            </div>
+            <div>
+              <label for="">نوع:</label>
+              <label id="input">{{carType}}</label>
+            </div>
+
+          </div>
+          <div class="transfer">
+            <div>
+              <label for="">من اسم السيد :</label>
+              <label id="input">{{fromOwnerName}}</label>
+            </div>
+            <div>
+              <label for="">إلى اسم السيد:</label>
+              <label id="input">{{toOwnerName}}</label>
+            </div>
+
+          </div>
+          <div>
+            <span>
+              علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
+            </span>
+
+            <div class="date2">
+              <label for="">تاريخ:</label>
+              <label id="input">{{date | date : 'dd-MM-yyy'}}</label>
+            </div>
+
+
+          </div>
+          <br>
+          <div>
+            <label>وتفضلوا بقبول فائق الاحترام</label>
+          </div>
+          <div class="owner">
+            <label for=""> صاحب مكتب تكسي التوبة للاندماج</label>
+
+
+
+          </div>
+
+
+        </div>
+      </form>
+
+    </div>
+    <div class="footer">
+      <span>
+        هاتف:1166893-006
+      </span>
+      <span>فاكس:0777303606</span>
+      <span>ص-ب:11100928433</span>
+      <span>عمان أبو علندا إسكان الكهرباء </span>
+      <span>P,o:928433</span>
+      <span>Fax:06-4165033</span>
+      <span>Phone:06-4166893</span>
+
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary button1" (click)="downloadAsPDF()">
+  Preview Report
+</button>
