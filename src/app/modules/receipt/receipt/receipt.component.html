@@ -35,13 +35,13 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable >
           <div>
 
             <label for=""> التاريخ:</label>
-            <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;">{{ date | date : 'dd-MM-yyyy' }}</label>
+            <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{ date | date : 'dd-MM-yyyy' }}</label>
 
           </div>
           <div>
 
             <label for="">رقم الوصل:</label>
-            <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;">{{data.receiptNo}}</label>
+            <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{data.receiptNo}}</label>
 
           </div>
         </div>
@@ -49,7 +49,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable >
           <div>
 
             <label for="">وصلني من السيد /السادة:</label>
-            <label id="input1" style=" border: none;border-bottom: 2px dotted black;width: 32rem;">{{ (data.driver?.driverTranslation)![layoutService.config.lang]?.ownerName
+            <label id="input1" style=" border: none;border-bottom: 2px dotted black;padding-left: 14rem;padding-right: 14rem;">{{ (data.driver?.driverTranslation)![layoutService.config.lang]?.ownerName
               }}</label>
 
           </div>
@@ -58,11 +58,11 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable >
 
             <div>
               <label for="">وذلك عن كمسيون واشتراك لشهر:</label>
-              <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;">{{ data.month }}</label>
+              <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{ data.month }}</label>
             </div>
             <div>
               <label for="">سنة</label>
-              <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;">{{ data.year }}</label>
+              <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{ data.year }}</label>
             </div>
 
 
@@ -72,13 +72,13 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable >
           <div style="margin-top: 1.3rem;">
 
             <label for="">لسيارة رقم :</label>
-            <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;">{{ data.driver?.carNumber }}</label>
+            <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{ data.driver?.carNumber }}</label>
 
           </div>
           <div class="signature" style=" margin-right: 25rem;margin-top: 2rem;">
 
             <label for="">توقيع المستلم</label>
-            <label id="input" style="border: none;border-bottom: 2px dotted black;width: 9rem;"></label>
+            <label id="input" style="border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;"></label>
 
           </div>
         </div>
