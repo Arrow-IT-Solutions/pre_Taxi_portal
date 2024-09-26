@@ -5,6 +5,7 @@ import { LayoutService } from 'src/app/layout/service/layout.service';
 import { ActivatedRoute } from '@angular/router';
 import { PaymentResponse, PaymentUpdateRequest, PaymentSearchRequest } from '../../payments/payments.module';
 import { PaymentService } from 'src/app/Core/services/payment.service';
+import { PrintService, Setting } from 'src/app/layout/service/printService';
 @Component({
   selector: 'app-receipt',
   templateUrl: './receipt.component.html',
@@ -19,7 +20,7 @@ export class ReceiptComponent implements OnInit {
   data: PaymentResponse
 
   constructor(public layoutService: LayoutService,
-     private route: ActivatedRoute, public paymentService: PaymentService) {
+     private route: ActivatedRoute, public paymentService: PaymentService,public printService:PrintService) {
 
 
 
@@ -76,6 +77,24 @@ export class ReceiptComponent implements OnInit {
 
     // Generate the PDF and return the blob URL
     return html2pdf().from(element).set(opt).output('bloburl');
+  }
+
+  print()
+  {
+    const content = document.getElementById('pdfTable')?.outerHTML || '';
+
+    console.log("Content : ",content);
+    let config :Setting =
+    {
+      printerName : 'Xerox Phaser 3020',
+      unit : 'in',
+      orientation  : 'portrait',
+      width:210,
+      height : 148,
+      copies : 1
+    }
+
+    this.printService.Print(content,config);
   }
 
   // Second Function: Open PDF and trigger the print dialog
