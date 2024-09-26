@@ -22,13 +22,13 @@ border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0,
           <label for="" style="font-size: 1.3rem;">التي تحمل رقم:</label>
           <label id="input" style="font-size: 1.3rem; border: none;
           border-bottom: 2px dotted black;
-          width: 18rem;">{{carNumber}}</label>
+          padding-left: 6rem;padding-right: 6rem;">{{carNumber}}</label>
         </div>
         <div>
           <label for="" style="font-size: 1.3rem;">نوع:</label>
           <label id="input" style="font-size: 1.3rem; border: none;
           border-bottom: 2px dotted black;
-          width: 18rem;">{{carType}}</label>
+          padding-left: 6rem;padding-right: 6rem;">{{carType}}</label>
         </div>
 
       </div>
@@ -67,6 +67,6 @@ border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0,
     </div>
   </div>
 </div>
-<button class="btn btn-primary button1" style="margin-top: 0.5rem;" (click)="downloadAsPDF()" >
+<button class="btn btn-primary button1" style="margin-top: 0.5rem;" (click)="print()" >
   Preview Report
 </button>

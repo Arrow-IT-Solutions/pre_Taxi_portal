@@ -11,7 +11,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
         <span style=" font-size: 1rem;color: black;">عمان-الأردن</span>
       </div>
       <div class="logo-container" style="width: 10rem;">
-        <img src="../../../../assets/images/Altawba-logo.jpg" style="width: 100%;" alt="">
+        <img src="https://res.cloudinary.com/dygpytefg/image/upload/v1727338013/Altawba-logo_ubmxzz.jpg" style="width: 100%;" alt="">
       </div>
       <div class="right" style="display: flex;flex-direction: column;">
 
@@ -36,13 +36,13 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
           <div>
 
             <label for=""> التاريخ:</label>
-            <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{date | date : 'dd-MM-yyyy'}}</label>
+            <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{date | date : 'dd-MM-yyyy'}}</label>
 
           </div>
           <div>
 
             <label for="">رقم الوصل:</label>
-            <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{reportNo}}</label>
+            <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{reportNo}}</label>
 
           </div>
         </div>
@@ -57,22 +57,22 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
 
             <div>
               <label for="">التي تحمل رقم:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{carNumber}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{carNumber}}</label>
             </div>
             <div>
               <label for="">نوع:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{carType}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{carType}}</label>
             </div>
 
           </div>
           <div class="transfer" style="display: flex;gap:6rem;padding-right: 7rem;margin-top: 1rem;">
             <div>
               <label for="">من اسم السيد :</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{fromOwnerName}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{fromOwnerName}}</label>
             </div>
             <div>
               <label for="">إلى اسم السيد:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{toOwnerName}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{toOwnerName}}</label>
             </div>
 
           </div>
@@ -83,7 +83,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
 
             <div class="date2" style="display: flex;padding-right: 7rem;margin-top: 1rem;">
               <label for="">تاريخ:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;width: 10rem;">{{date | date : 'dd-MM-yyy'}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{date | date : 'dd-MM-yyy'}}</label>
             </div>
 
 
@@ -119,6 +119,6 @@ margin-top: 4rem;">
     </div>
   </div>
 </div>
-<button class="btn btn-primary button1" (click)="downloadAsPDF()" style=" margin-top: 0.5rem;">
+<button class="btn btn-primary button1" (click)="print()" style=" margin-top: 0.5rem;">
   Preview Report
 </button>

@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as html2pdf from 'html2pdf.js'
 import { ActivatedRoute } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
+import { PrintService } from 'src/app/layout/service/printService';
 @Component({
   selector: 'app-vehicle-cancellation',
   templateUrl: './vehicle-cancellation.component.html',
@@ -17,7 +18,7 @@ export class VehicleCancellationComponent {
   reportNo: any
 
   constructor(public layoutService: LayoutService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,public printService:PrintService) {
 
 
 
@@ -33,6 +34,12 @@ export class VehicleCancellationComponent {
       this.reportNo = params['reportNo']; // Access the query parameter 'q'
 
     });
+
+  }
+  print(){
+    const content = document.getElementById('pdfTable')?.outerHTML || '';
+
+    console.log("Content : ",content);
 
   }
 
