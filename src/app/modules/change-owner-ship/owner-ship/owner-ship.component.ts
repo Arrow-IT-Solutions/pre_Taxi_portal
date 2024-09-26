@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as html2pdf from 'html2pdf.js'
 import { LayoutService } from 'src/app/layout/service/layout.service';
+import { PrintService } from 'src/app/layout/service/printService';
 
 @Component({
   selector: 'app-owner-ship',
@@ -18,7 +19,7 @@ export class OwnerShipComponent {
   carNumber: any
   reportNo: any
   constructor(public layoutService: LayoutService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,public printService:PrintService) {
   }
   async ngOnInit() {
 
@@ -36,6 +37,12 @@ export class OwnerShipComponent {
 
   }
   GetReportNo() {
+
+  }
+  print(){
+    const content = document.getElementById('pdfTable')?.outerHTML || '';
+
+    console.log("Content : ",content);
 
   }
   

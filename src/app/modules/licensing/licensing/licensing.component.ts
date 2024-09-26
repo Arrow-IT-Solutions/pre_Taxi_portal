@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as html2pdf from 'html2pdf.js';
 import { ActivatedRoute } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
+import { PrintService } from 'src/app/layout/service/printService';
 
 @Component({
   selector: 'app-licensing',
@@ -18,7 +19,7 @@ export class LicensingComponent {
   carNumber: any;
   reportNo: any;
   constructor(public layoutService: LayoutService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,public printService:PrintService) {
 
 
 
@@ -58,6 +59,11 @@ export class LicensingComponent {
   
     // Generate the PDF and return the blob URL
     return html2pdf().from(element).set(opt).output('bloburl');
+  }
+  print(){
+    const content = document.getElementById('pdfTable')?.outerHTML || '';
+
+    console.log("Content : ",content);
   }
   openAndPrintPDF() {
     // Generate the PDF and get the blob URL
