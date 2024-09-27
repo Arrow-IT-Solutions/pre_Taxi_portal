@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as html2pdf from 'html2pdf.js'
 import { ActivatedRoute } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
-import { PrintService } from 'src/app/layout/service/printService';
+import { PrintService, Setting } from 'src/app/layout/service/printService';
 @Component({
   selector: 'app-vehicle-cancellation',
   templateUrl: './vehicle-cancellation.component.html',
@@ -40,6 +40,20 @@ export class VehicleCancellationComponent {
     const content = document.getElementById('pdfTable')?.outerHTML || '';
 
     console.log("Content : ",content);
+
+
+    let config :Setting =
+    {
+      printerName : this.printService.printerConfig.printerNameReceipt1,
+      unit : 'in',
+      orientation  : 'portrait',
+      width:210,
+      height : 148,
+      copies : 2,
+      paperSize : 'A4'
+    }
+
+    this.printService.Print(content,config);
 
   }
 

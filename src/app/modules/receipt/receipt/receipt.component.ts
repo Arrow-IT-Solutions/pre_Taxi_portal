@@ -86,12 +86,13 @@ export class ReceiptComponent implements OnInit {
     console.log("Content : ",content);
     let config :Setting =
     {
-      printerName : 'Xerox Phaser 3020',
+      printerName : this.printService.printerConfig.printerNameReceipt1,
       unit : 'in',
-      orientation  : 'portrait',
+      orientation  : 'landscape',
       width:210,
       height : 148,
-      copies : 1
+      copies : 2,
+      paperSize : 'A5'
     }
 
     this.printService.Print(content,config);

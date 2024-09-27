@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Core/services/user.service';
 import { LayoutService } from 'src/app/layout/service/layout.service';
+import { PrinterCertificate, PrinterConfig, PrintService } from 'src/app/layout/service/printService';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,8 @@ export class LocalService {
   constructor(
     private userService: UserService,
     private layoutService: LayoutService,
-    public router: Router
+    public router: Router,
+    public printerService : PrintService
   ) {}
 
   public saveData(key: string, value: string) {
@@ -30,11 +32,47 @@ export class LocalService {
     console.log('getStorage');
 
     var user = this.getData('currentUser');
+    console.log("Test");
+    var printerConfig = this.getData('printerConfig');
+    var printerCertificate = this.getData('printerCertificate');
+    console.log("Printer Config : ",printerConfig);
     //var config = this.getData()
+
+    if(printerCertificate != null)
+    {
+      this.printerService.printerCertificate = JSON.parse(printerCertificate);
+    }
+    else
+    {
+      let printerCer : PrinterCertificate={
+        Cert:'',
+        key : ''
+      }
+      this.saveData('printerCertificate', JSON.stringify(printerCer));
+    }
+
+    if(printerConfig != null)
+    {
+      console.log("here");
+      this.printerService.printerConfig = JSON.parse(printerConfig);
+    }
+    else
+    {
+      let config : PrinterConfig = {
+        printerNameReceipt1 : "string",
+        printerNameReceipt2 : "string",
+        printerNameCash : "string",
+        printerNameBarcode : "string",
+        Cert : "",
+        key:""
+      }
+      this.saveData('printerConfig', JSON.stringify(config));
+    }
 
     if (user != null) {
       // var permission = this.localService.getData("currentPermission");
       this.userService.currentUser = JSON.parse(user);
+
       // this.userPermission.currentPermissionUser = JSON.parse(permission);
       var url = this.router.url;
 
