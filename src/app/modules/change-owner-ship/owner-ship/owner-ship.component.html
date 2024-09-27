@@ -1,93 +1,98 @@
-<div class=" a4-page" id="pdfTable" #pdfTable>
-  <div class="header" [ngStyle]="{ direction: 'rtl' }">
-    <span id="one">بسم الله الرحمن الرحيم</span>
-    <div class="header-tittle">
-      <div class="left">
-        <span>شركة التوبة للنقل</span>
-        <span>فرع أبو علندا</span>
-        <span>عمان-الأردن</span>
+<div class=" a4-page" id="pdfTable" style="width: 297mm;height: 210mm;margin: auto;padding: 10mm;padding-top: 5mm;
+background-color: white;box-sizing: border-box;text-align: center;border: 1px solid #dee2e6;border-radius: 0.25rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
+  <div class="header" style="display: flex;flex-direction: column;padding-bottom: 4mm;row-gap: 0.5rem;" [ngStyle]="{ direction: 'rtl' }">
+    <span id="one" style="text-align: center;font-weight: bold;color: black;font-size: 1rem;">بسم الله الرحمن الرحيم</span>
+    <div class="header-tittle" style="display: flex;justify-content: space-between;margin-top: 1rem;
+    padding-left: 2rem;padding-right: 2rem;">
+      <div class="left" style="display: flex;flex-direction: column;">
+        <span style=" font-size: 1rem;color: black;">شركة التوبة للنقل</span>
+        <span style=" font-size: 1rem;color: black;">فرع أبو علندا</span>
+        <span style=" font-size: 1rem;color: black;">عمان-الأردن</span>
       </div>
-      <div class="logo-container">
-        <img src="../../../../assets/images/Altawba-logo.jpg" alt="">
+      <div class="logo-container" style="width: 10rem;">
+        <img src="https://res.cloudinary.com/dygpytefg/image/upload/v1727338013/Altawba-logo_ubmxzz.jpg" style="width: 100%;" alt="">
       </div>
-      <div class="right">
+      <div class="right" style="display: flex;flex-direction: column;">
 
-        <span>Altawba For Transportation</span>
-        <span>Abu Alanda Branch</span>
-        <span>Amman-Jordan</span>
+        <span style=" font-size: 1rem;color: black;">Altawba For Transportation</span>
+        <span style=" font-size: 1rem;color: black;">Abu Alanda Branch</span>
+        <span style=" font-size: 1rem;color: black;">Amman-Jordan</span>
       </div>
     </div>
 
   </div>
-  <div class="content">
-    <div class="tittle">
+  <div class="content" style="direction: rtl;display: flex;flex-direction: column;background-color: white;
+  justify-content: space-between;padding-bottom: 1.5rem;">
+    <div class="tittle" style="display: flex;flex-direction: column;justify-content: center;
+    align-items: center;row-gap: 0.5rem;font-weight: bold;">
       <span>عطوفة مدير دائرة عمليات النقل العام الأكرم</span>
       <span>أمانة عمان الكبرى</span>
       <span>الموضوع - براءة ذمة/ نقل ملكية</span>
     </div>
-    <div class="container">
+    <div class="container" style=" direction: rtl;row-gap: 0.5rem;margin-top: 1rem;">
       <form action="">
-        <div class="date">
+        <div class="date" style=" display: flex;gap:20rem;padding-right: 7rem; margin-top: 1rem;">
           <div>
 
             <label for=""> التاريخ:</label>
-            <label id="input">{{date | date : 'dd-MM-yyyy'}}</label>
+            <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{date | date : 'dd-MM-yyyy'}}</label>
 
           </div>
           <div>
 
             <label for="">رقم الوصل:</label>
-            <label id="input">{{reportNo}}</label>
+            <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{reportNo}}</label>
 
           </div>
         </div>
-        <div class="details">
+        <div class="details" style="margin-top: 1rem;">
 
 
-          <span>لا مانع لدى مكتب تكسي التوبة للاندماج من نقل ملكية السارة العمومي</span>
+          <span style=" font-size: 1rem;display: flex;padding-right: 7rem;">لا مانع لدى مكتب تكسي التوبة للاندماج من نقل ملكية السارة العمومي</span>
 
 
 
-          <div class="type">
+          <div class="type" style=" display: flex;gap:6rem;padding-right: 7rem;margin-top: 1rem;">
 
             <div>
               <label for="">التي تحمل رقم:</label>
-              <label id="input">{{carNumber}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{carNumber}}</label>
             </div>
             <div>
               <label for="">نوع:</label>
-              <label id="input">{{carType}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{carType}}</label>
             </div>
 
           </div>
-          <div class="transfer">
+          <div class="transfer" style="display: flex;gap:6rem;padding-right: 7rem;margin-top: 1rem;">
             <div>
               <label for="">من اسم السيد :</label>
-              <label id="input">{{fromOwnerName}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{fromOwnerName}}</label>
             </div>
             <div>
               <label for="">إلى اسم السيد:</label>
-              <label id="input">{{toOwnerName}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{toOwnerName}}</label>
             </div>
 
           </div>
-          <div>
-            <span>
+          <div style="margin-top: 1rem;">
+            <span style=" font-size: 1rem;display: flex;padding-right: 7rem;">
               علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
             </span>
 
-            <div class="date2">
+            <div class="date2" style="display: flex;padding-right: 7rem;margin-top: 1rem;">
               <label for="">تاريخ:</label>
-              <label id="input">{{date | date : 'dd-MM-yyy'}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 5rem;padding-right: 5rem;">{{date | date : 'dd-MM-yyy'}}</label>
             </div>
 
 
           </div>
           <br>
-          <div>
+          <div style="margin-top: 1rem;">
             <label>وتفضلوا بقبول فائق الاحترام</label>
           </div>
-          <div class="owner">
+          <div class="owner" style=" margin-right: 25rem;margin-top: 2rem;">
             <label for=""> صاحب مكتب تكسي التوبة للاندماج</label>
 
 
@@ -99,7 +104,8 @@
       </form>
 
     </div>
-    <div class="footer">
+    <div class="footer" style="direction: rtl;display: flex;justify-content: center;text-align: center;
+margin-top: 4rem;">
       <span>
         هاتف:1166893-006
       </span>
@@ -113,6 +119,6 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary button1" (click)="downloadAsPDF()">
+<button class="btn btn-primary button1" (click)="print()" style=" margin-top: 0.5rem;">
   Preview Report
 </button>
