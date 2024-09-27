@@ -49,7 +49,7 @@ export class VehicleCancellationComponent {
       orientation  : 'portrait',
       width:210,
       height : 148,
-      copies : 2,
+      copies : 1,
       paperSize : 'A4'
     }
 
