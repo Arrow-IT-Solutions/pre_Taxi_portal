@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as html2pdf from 'html2pdf.js'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LayoutService } from 'src/app/layout/service/layout.service';
 import { PrintService, Setting } from 'src/app/layout/service/printService';
 @Component({
@@ -18,7 +18,7 @@ export class VehicleCancellationComponent {
   reportNo: any
 
   constructor(public layoutService: LayoutService,
-    private route: ActivatedRoute,public printService:PrintService) {
+    private route: ActivatedRoute,public printService:PrintService,public router: Router) {
 
 
 
@@ -55,6 +55,10 @@ export class VehicleCancellationComponent {
 
     this.printService.Print(content,config);
 
+  }
+  backHome(){
+   
+    this.router.navigate(['layout-admin/drivers']);
   }
 
 
