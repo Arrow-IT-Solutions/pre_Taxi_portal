@@ -1,3 +1,4 @@
+<div style="width: 100%;display: flex;flex-direction: column; padding-top: 0.5rem;padding-bottom: 0.5rem;">
 <div class=" a4-page" style="width: 297mm;height: 210mm;margin: auto;padding: 10mm;padding-top: 5mm;
 background-color: white;box-sizing: border-box;text-align: center;border: 1px solid #dee2e6;
 border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable>
@@ -116,6 +117,10 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
     </div>
   </div>
 </div>
-<button class="btn btn-primary button1" (click)="print()" style="margin-top: 0.5rem;">
+<div class="actions" style="width: 70%;margin: auto; display: flex;justify-content: space-between;">
+<button class="btn btn-primary" (click)="print()" style="margin-top: 1rem;">
   Preview Report
 </button>
+<button class="btn btn-primary" style="margin-top: 1rem;" (click)="backHome()" >Back Home</button>
+</div>
+</div>

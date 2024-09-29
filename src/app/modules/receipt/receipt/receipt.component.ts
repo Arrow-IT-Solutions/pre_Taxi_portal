@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/co
 declare var require: any;
 import * as html2pdf from 'html2pdf.js'
 import { LayoutService } from 'src/app/layout/service/layout.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentResponse, PaymentUpdateRequest, PaymentSearchRequest } from '../../payments/payments.module';
 import { PaymentService } from 'src/app/Core/services/payment.service';
 import { PrintService, Setting } from 'src/app/layout/service/printService';
@@ -20,7 +20,7 @@ export class ReceiptComponent implements OnInit {
   data: PaymentResponse
 
   constructor(public layoutService: LayoutService,
-     private route: ActivatedRoute, public paymentService: PaymentService,public printService:PrintService) {
+     private route: ActivatedRoute, public paymentService: PaymentService,public printService:PrintService,public router:Router) {
 
 
 
@@ -96,6 +96,10 @@ export class ReceiptComponent implements OnInit {
     }
 
     this.printService.Print(content,config);
+  }
+  backHome(){
+   
+    this.router.navigate(['layout-admin/payments']);
   }
 
   // Second Function: Open PDF and trigger the print dialog
