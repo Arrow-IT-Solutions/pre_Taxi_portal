@@ -138,6 +138,8 @@
   "CarTypeAr_Ownership" : "نوع السيارة",
   "FromOwnerName_Ownership" : "من اسم السيد",
   "ToOwnerName_Ownership" : "الى اسم السيد",
-  "Date_Ownership" : "التاريخ"
+  "Date_Ownership" : "التاريخ",
+  "totalRecords_Driver" : "المجموع",
+  "totalRecords_ExpiredLicence" : "المجموع"
 
 }

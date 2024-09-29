@@ -152,6 +152,10 @@
         </div>
       </div>
     </div>
+    <div class="total">
+      {{ "totalRecords_ExpiredLicence" | translate }}:
+      {{ totalRecords }}
+    </div>
     <p-paginator [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions]="[4, 12, 20, 30]"
       (onPageChange)="paginate($event)"></p-paginator>
   </ng-container>
