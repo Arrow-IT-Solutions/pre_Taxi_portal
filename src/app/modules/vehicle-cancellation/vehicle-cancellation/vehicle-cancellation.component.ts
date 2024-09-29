@@ -46,7 +46,7 @@ export class VehicleCancellationComponent {
     {
       printerName : this.printService.printerConfig.printerNameReceipt1,
       unit : 'in',
-      orientation  : 'landscape',
+      orientation  : 'portrait',
       width:210,
       height : 148,
       copies : 1,
