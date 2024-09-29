@@ -138,6 +138,9 @@
   "CarTypeAr_Ownership" : "Car Type",
   "FromOwnerName_Ownership" : "From Owner",
   "ToOwnerName_Ownership" : "To Owner",
-  "Date_Ownership" : "Date"
+  "Date_Ownership" : "Date",
+  "totalRecords_Driver" : "Total Records",
+  "totalRecords_ExpiredLicence" : "Total Records"
+
 
 }
