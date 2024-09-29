@@ -1,7 +1,7 @@
 <div style="width: 100%;display: flex;flex-direction: column; padding-top: 0.5rem;padding-bottom: 0.5rem;">
-<div class=" a4-page" style="width: 297mm;height: 210mm;margin: auto;padding: 10mm;padding-top: 5mm;
+<div class=" a4-page" style="width: 210mm;height: 297mm;margin: auto;padding: 10mm;padding-top: 5mm;
 background-color: white;box-sizing: border-box;text-align: center;border: 1px solid #dee2e6;
-border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable>
+border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);position: relative;" id="pdfTable" #pdfTable>
   <div class="header" style=" display: flex;flex-direction: column;padding-bottom: 4mm;row-gap: 0.5rem;"
    [ngStyle]="{ direction: 'rtl' }">
     <span id="one" style=" text-align: center;font-weight: bold;
@@ -33,9 +33,9 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
       <span>أمانة عمان الكبرى</span>
       <span>الموضوع - براءة ذمة /للترخيص فقط</span>
     </div>
-    <div class="container" style=" direction: rtl;row-gap: 0.5rem;margin-top: 1rem;">
+    <div class="container" style=" direction: rtl;row-gap: 0.5rem;margin-top: 4rem;">
       <form action="">
-        <div class="date" style="margin-top: 1rem;display: flex;gap:22rem;padding-right: 3rem;">
+        <div class="date" style="margin-top: 1rem;display: flex;gap:15rem;padding-right: 3rem;">
           <div>
 
             <label for=""> التاريخ:</label>
@@ -52,27 +52,27 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
         <div class="details">
 
 
-          <span style="font-size: 1rem;display: flex;padding-right: 3rem; margin-top: 1rem;">لا مانع لدي من ترخيص السيارة العمومي</span>
+          <span style="font-size: 1rem;display: flex;padding-right: 3rem; margin-top: 2rem;">لا مانع لدي من ترخيص السيارة العمومي</span>
 
 
 
-          <div class="type" style=" display: flex;gap:8rem;padding-right: 3rem;margin-top: 1rem;">
+          <div class="type" style=" display: flex;padding-right: 3rem;margin-top: 2rem;gap: 2.5rem;">
 
             <div>
               <label for="">التي تحمل رقم:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{carNumber}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 2rem;padding-right: 2rem;">{{carNumber}}</label>
             </div>
             <div>
               <label for="">نوع:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{carType}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 2rem;padding-right: 2rem;">{{carType}}</label>
             </div>
             <div>
               <label for="">موديل:</label>
-              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 3.5rem;padding-right: 3.5rem;">{{carModel}}</label>
+              <label id="input" style=" border: none;border-bottom: 2px dotted black;padding-left: 2rem;padding-right: 2rem;">{{carModel}}</label>
             </div>
           </div><br>
           <div>
-            <span style="font-size: 1rem;display: flex;padding-right: 3rem;">
+            <span style="font-size: 1rem;display: flex;padding-right: 3rem;margin-top: 2rem;">
               علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
             </span>
             <br>
@@ -84,7 +84,7 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
 
           </div>
           <br>
-          <div>
+          <div style="margin-top: 3rem;">
             <label>وتفضلوا بقبول فائق الاحترام</label>
           </div>
           <div class="owner" style=" margin-right: 25rem;margin-top: 2rem;">
@@ -95,7 +95,7 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
           </div>
 
           <div class="note" style="display: flex;padding-right: 3rem;
-          font-size: 0.8rem;font-weight: bold;">
+          font-size: 0.8rem;font-weight: bold;margin-top: 3rem;">
             <label>ملاحظة:سارية المفعول لمرة واحدة لمدة أسبوع من تاريخه</label>
           </div>
         </div>
@@ -103,7 +103,7 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
 
     </div>
     <div class="footer" style="  direction: rtl;display: flex;justify-content: center;text-align: center;
-   margin-top: 1rem;">
+    font-size: 0.7rem;position: absolute;bottom: 0;margin-bottom: 1rem;">
       <span>
         هاتف:1166893-006
       </span>
@@ -117,7 +117,7 @@ border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #
     </div>
   </div>
 </div>
-<div class="actions" style="width: 70%;margin: auto; display: flex;justify-content: space-between;">
+<div class="actions" style="width: 50%;margin: auto; display: flex;justify-content: space-between;">
 <button class="btn btn-primary" (click)="print()" style="margin-top: 1rem;">
   Preview Report
 </button>
