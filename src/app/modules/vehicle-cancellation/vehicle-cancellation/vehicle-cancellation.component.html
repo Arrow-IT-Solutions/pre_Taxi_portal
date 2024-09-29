@@ -1,4 +1,5 @@
-<div class=" a4-page" id="pdfTable" style=" width: 297mm;height: 210mm;margin: auto;padding: 10mm;
+<div style="width: 100%;display: flex;flex-direction: column; padding-top: 0.5rem;padding-bottom: 0.5rem;">
+<div class=" a4-page" id="pdfTable" style=" width: 210mm;height: 297mm;margin: auto;padding: 10mm;
 padding-top: 5mm;background-color: white;box-sizing: border-box;text-align: center;
 border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" #pdfTable>
   <div class="header" [ngStyle]="{ direction: 'rtl' }" style="display: flex;flex-direction: column;padding-bottom: 4mm;
@@ -14,37 +15,37 @@ border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0,
       <span>عطوفة مدير دائرة ترخيص السواقين والمركبات الأكرم</span>
       <span>الموضوع:شطب مركبة</span>
     </div>
-    <div class="container" style="direction: rtl;margin-top: 1rem;row-gap: 0.5rem;">
-      <span style="display: flex;padding-right: 7rem; font-stretch:extra-expanded;font-size: 2.5rem;">لا مانع لدى مكتب تكسي التوبة من شطب المركبة</span>
-      <div class="type" style="display: flex;gap: 2rem;padding-right: 7rem;margin-top: 1rem;">
+    <div class="container" style="direction: rtl;margin-top: 2rem;row-gap: 0.5rem;">
+      <span style="display: flex; font-stretch:extra-expanded;font-size: 2rem;">لا مانع لدى مكتب تكسي التوبة من شطب المركبة</span>
+      <div class="type" style="display: flex;gap: 2.5rem;margin-top: 1.5rem;">
 
         <div>
           <label for="" style="font-size: 1.3rem;">التي تحمل رقم:</label>
           <label id="input" style="direction: rtl; font-size: 1.3rem; border: none;
           border-bottom: 2px dotted black;
-          padding-left: 6rem;padding-right: 6rem;">{{carNumber}}</label>
+          padding-left: 3rem;padding-right: 3rem;">{{carNumber}}</label>
         </div>
         <div>
           <label for="" style="font-size: 1.3rem;">نوع:</label>
           <label id="input" style="font-size: 1.3rem; border: none;
           border-bottom: 2px dotted black;
-          padding-left: 6rem;padding-right: 6rem;">{{carType}}</label>
+          padding-left: 3rem;padding-right: 3rem;">{{carType}}</label>
         </div>
 
       </div>
       <div class="ownerName" style=" display: flex;
-            padding-right: 7rem;margin-top: 1rem;">
+            margin-top: 1.5rem;">
         <label for="" style="font-size: 1.3rem;">والعائدة ملكيتها إلى السيد/</label>
         <label id="input" style=" border: none;
         border-bottom: 2px dotted black;
         width: 18rem;font-size: 1.3rem;">{{ownerName}}</label>
       </div>
       <div style="margin-top: 1rem;">
-        <span style=" font-size: 2rem;display: flex;padding-right: 7rem;font-stretch:extra-expanded;">
+        <span style=" font-size: 1.5rem;display: flex;font-stretch:extra-expanded;">
           علما أن السيارة سددت جميع التزاماتها المالية للمكتب لغاية
         </span>
 
-        <div class="date2" style=" display: flex;padding-right: 7rem;margin-top: 1rem;">
+        <div class="date2" style=" display: flex;margin-top: 1rem;">
           <label for="" style="font-size: 1.3rem;">تاريخ:</label>
           <label id="input" style="direction: ltr ;font-size: 1.3rem; border: none;
           border-bottom: 2px dotted black;
@@ -53,11 +54,11 @@ border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0,
 
 
       </div>
-      <div class="respect" style="margin-top: 2rem;">
+      <div class="respect" style="margin-top: 4rem;">
         <label style="font-weight: bold;font-size: 2rem;">وتفضلوا بقبول فائق الاحترام</label>
       </div>
-      <div class="owner" style="margin-right: 25rem;margin-top: 3rem;">
-        <label for="" style="font-weight: bold;font-size: 2rem;"> صاحب مكتب تكسي التوبة للاندماج</label>
+      <div class="owner" style="margin-right: 20rem;margin-top: 6rem;">
+        <label for="" style="font-weight: bold;font-size: 1.5rem;"> صاحب مكتب تكسي التوبة للاندماج</label>
 
 
 
@@ -67,6 +68,10 @@ border: 1px solid #dee2e6;border-radius: 0.25rem;box-shadow: 0 0 10px rgba(0, 0,
     </div>
   </div>
 </div>
-<button class="btn btn-primary button1" style="margin-top: 0.5rem;" (click)="print()" >
-  Preview Report
-</button>
+<div class="actions" style="width: 50%;margin: auto; display: flex;justify-content: space-between;">
+  <button class="btn btn-primary" (click)="print()" style="margin-top: 1rem;">
+    Preview Report
+  </button>
+  <button class="btn btn-primary" style="margin-top: 1rem;" (click)="backHome()" >Back Home</button>
+  </div>
+</div>
