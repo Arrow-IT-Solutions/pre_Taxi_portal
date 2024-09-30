@@ -131,10 +131,17 @@ export interface PrinterCertificate {
       
               const config = qz.configs.create(setting.printerName, {
                 // size: {  width: setting.width, height: setting.height },
-                paperSize:setting.paperSize,  // Set size for the label
-                units: setting.unit,
-                copies: setting.copies, 
-                orientation : setting.orientation
+                // paperSize:setting.paperSize,  // Set size for the label
+                // units: setting.unit,
+                // copies: setting.copies, 
+                orientation : setting.orientation,
+
+                size: { width: setting.width, height: setting.height }, // A5 size in millimeters
+    units: setting.unit, // Set units to millimeters
+    copies: 1, // Number of copies
+    margins: 0, // Optional: Set margin if needed
+    rotation: 0, // Optional: Rotate the print if needed
+    duplex: false // Optional: Set true for double-sided printing
               });
       
               const printData = [
