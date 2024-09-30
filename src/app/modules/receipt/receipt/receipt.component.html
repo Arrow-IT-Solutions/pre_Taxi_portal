@@ -1,4 +1,13 @@
 <div style="width: 100%;display: flex;flex-direction: column; padding-top: 0.5rem;padding-bottom: 0.5rem;">
+  <div class="actions" >
+    <button class="btn btn-primary" (click)="print()">
+      Print Report
+      <img src="../../../../assets/images/icons8-print-40.png" alt="">
+    </button>
+    <button class="btn btn-primary"  (click)="backHome()" >Back Home
+      <img src="../../../../assets/images/icons8-arrow-50.png" alt="">
+    </button>
+    </div>
 <div class=" a5-page" style="size: A5 landscape; width: 210mm;   height: 148mm;
 margin: auto;padding: 10mm;padding-top: 5mm;background-color: white;
 box-sizing: border-box;text-align: center;border: 1px solid #dee2e6;border-radius: 0.25rem;
@@ -105,11 +114,6 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" id="pdfTable" #pdfTable >
  
 
 
-  <div class="actions" style="width: 70%;margin: auto; display: flex;justify-content: space-around;">
-    <button class="btn btn-primary" (click)="print()" style="margin-top: 1rem;">
-      Preview Report
-    </button>
-    <button class="btn btn-primary" style="margin-top: 1rem;" (click)="backHome()" >Back Home</button>
-    </div>
+  
   </div>
 
