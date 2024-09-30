@@ -87,12 +87,12 @@ export class ReceiptComponent implements OnInit {
     let config :Setting =
     {
       printerName : this.printService.printerConfig.printerNameReceipt1,
-      unit : 'in',
+      unit : 'mm',
       orientation  : 'landscape',
-      width:210,
-      height : 148,
+      width:148,
+      height : 210,
       copies : 2,
-      paperSize : 'A5'
+      paperSize : 'a5'
     }
 
     this.printService.Print(content,config);
