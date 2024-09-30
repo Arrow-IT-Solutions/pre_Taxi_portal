@@ -1,9 +1,12 @@
 <div style="width: 100%;display: flex;flex-direction: column; padding-top: 0.5rem;padding-bottom: 0.5rem;">
-  <div class="actions" style="width: 50%;margin: auto; display: flex;justify-content: space-between;">
-    <button class="btn btn-primary" (click)="print()" style="margin-top: 1rem;">
-      Preview Report
+  <div class="actions" >
+    <button class="btn btn-primary" (click)="print()">
+      Print Report
+      <img src="../../../../assets/images/icons8-print-40.png" alt="">
     </button>
-    <button class="btn btn-primary" style="margin-top: 1rem;" (click)="backHome()" >Back Home</button>
+    <button class="btn btn-primary"  (click)="backHome()" >Back Home
+      <img src="../../../../assets/images/icons8-arrow-50.png" alt="">
+    </button>
     </div>
     
 <div class=" a4-page" id="pdfTable" style=" width: 210mm;height: 297mm;margin: auto;padding: 10mm;
