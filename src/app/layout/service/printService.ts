@@ -138,7 +138,7 @@ export interface PrinterCertificate {
 
                 size: { width: setting.width, height: setting.height }, // A5 size in millimeters
     units: setting.unit, // Set units to millimeters
-    copies: 1, // Number of copies
+    copies: setting.copies, // Number of copies
     margins: 0, // Optional: Set margin if needed
     rotation: 0, // Optional: Rotate the print if needed
     duplex: false // Optional: Set true for double-sided printing
