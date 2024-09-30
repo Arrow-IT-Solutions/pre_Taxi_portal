@@ -13,3 +13,19 @@
     direction: rtl; /* Right-to-left direction for Arabic */
     background-color: #f8f9fa; /* Light background for better contrast */
   }
+  .actions{
+    width: 50%;
+    margin: auto;
+     display: flex;
+     justify-content: space-between;
+     button{
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      img{
+        width:2rem
+      }
+     }
+
+  }
