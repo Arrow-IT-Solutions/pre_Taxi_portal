@@ -45,10 +45,10 @@ export class VehicleCancellationComponent {
     let config :Setting =
     {
       printerName : this.printService.printerConfig.printerNameReceipt1,
-      unit : 'in',
+      unit : 'mm',
       orientation  : 'portrait',
       width:210,
-      height : 148,
+      height : 297,
       copies : 1,
       paperSize : 'A4'
     }
