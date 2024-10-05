@@ -28,7 +28,7 @@ export class LicensingComponent {
 
     this.route.queryParams.subscribe(params => {
       this.carType = params['carType'];
-      this.carNumber = params['carNumber']; // Access the query parameter 'q'
+      this.carNumber = params['carNumber'].split('-').reverse().join('-');  // Access the query parameter 'q'
       this.carModel = params['carModel']; // Access the query parameter 'q'
       this.date = params['date']; // Access the query parameter 'q'
       this.reportNo = params['reportNo'];

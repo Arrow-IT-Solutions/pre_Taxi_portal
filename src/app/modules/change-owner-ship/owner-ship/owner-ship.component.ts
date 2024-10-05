@@ -25,7 +25,7 @@ export class OwnerShipComponent {
 
     this.route.queryParams.subscribe(params => {
       this.carType = params['carType'];
-      this.carNumber = params['carNumber']; // Access the query parameter 'q'
+      this.carNumber = params['carNumber'].split('-').reverse().join('-'); // Access the query parameter 'q'
       this.fromOwnerName = params['fromOwnerName']; // Access the query parameter 'q'
       this.toOwnerName = params['toOwnerName']; // Access the query parameter 'q'
       this.date = params['date']; // Access the query parameter 'q'

@@ -13,17 +13,12 @@ import { PrintService, Setting } from 'src/app/layout/service/printService';
 })
 export class ReceiptComponent implements OnInit {
   @ViewChild('pdfTable') pdfTable!: ElementRef;
-
   id: any;
   date: any;
-
-  data: PaymentResponse
-
+  data: PaymentResponse;
+  elmentContent?:string;
   constructor(public layoutService: LayoutService,
      private route: ActivatedRoute, public paymentService: PaymentService,public printService:PrintService,public router:Router) {
-
-
-
   }
 
   async ngOnInit() {
@@ -37,6 +32,11 @@ export class ReceiptComponent implements OnInit {
 
   }
   async FillData() {
+let element=document.getElementById("CarNumber");
+
+console.log(element?.innerText)
+this.elmentContent=element?.innerHTML;
+
 
     let filter: PaymentSearchRequest = {
       uuid: this.id.toString(),
@@ -53,6 +53,9 @@ export class ReceiptComponent implements OnInit {
     } else if (response.data != null && response.data.length != 0) {
       this.data = response.data[0];
       this.date = this.data.date
+      this.elmentContent=this.data.driver?.carNumber.split('-').reverse().join('-');
+      console.log(this.elmentContent)
+     
     }
   }
 
@@ -81,6 +84,9 @@ export class ReceiptComponent implements OnInit {
 
   print()
   {
+   
+ 
+
     const content = document.getElementById('pdfTable')?.outerHTML || '';
 
     console.log("Content : ",content);
@@ -96,6 +102,8 @@ export class ReceiptComponent implements OnInit {
     }
 
     this.printService.Print(content,config);
+   
+
   }
   backHome(){
    
