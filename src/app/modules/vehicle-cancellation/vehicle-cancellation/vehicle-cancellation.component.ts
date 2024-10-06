@@ -16,6 +16,7 @@ export class VehicleCancellationComponent {
   ownerName: any
   carNumber: any
   reportNo: any
+  elmentContent?:string;
 
   constructor(public layoutService: LayoutService,
     private route: ActivatedRoute,public printService:PrintService,public router: Router) {
@@ -24,11 +25,16 @@ export class VehicleCancellationComponent {
 
   }
 
+
   async ngOnInit() {
+    let element=document.getElementById("CarNumber");
+
+    console.log(element?.innerText)
+    this.elmentContent=element?.innerHTML;
 
     this.route.queryParams.subscribe(params => {
       this.carType = params['carType'];
-      this.carNumber = params['carNumber']; // Access the query parameter 'q'
+      this.carNumber = params['carNumber'].split('-').reverse().join('-'); // Access the query parameter 'q'
       this.ownerName = params['ownerName']; // Access the query parameter 'q'
       this.date = params['date']; // Access the query parameter 'q'
       this.reportNo = params['reportNo']; // Access the query parameter 'q'
